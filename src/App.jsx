@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+import './index.scss';
 import Home from './views/Home.jsx';
 import Waiter from './views/Waiter.jsx';
 import Chef from './views/Chef.jsx';
