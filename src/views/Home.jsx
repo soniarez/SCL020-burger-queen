@@ -10,16 +10,13 @@ const Home = () => {
       <img src={logo} alt="cafe logo" />
       <input type="text" placeholder="Server´s name" />
       <div className="btn-container">
-        <button>
-          <Link to="/Chef">
+        <Link to="/Chef" className='toView' onClick={() => console.log("clicking chef btn")}>
             <img className="main-icons" src={chef} alt="chef icon" />
-          </Link>
-        </button>
-        <button>
-          <Link to="/Waiter">
+        </Link>
+
+        <Link to="/Waiter" className='toView' onClick={() => console.log("cliking waiter btn")}>
             <img className="main-icons" src={waiter} alt="waiter icon" />
-          </Link>
-        </button>
+        </Link>
       </div>
     </div>
   );
