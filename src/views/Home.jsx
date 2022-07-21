@@ -1,4 +1,4 @@
-import logo from "../assets/CafeLogo.png";
+import logo from "../assets/cafeLogo.png";
 import chef from "../assets/chef.png";
 import waiter from "../assets/waiter.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,7 @@ const Home = () => {
     <div className="container">
       <img src={logo} alt="cafe logo" />
       <input type="text" placeholder="Server´s name" />
+      <div className="btn-container">
       <button>
         {/* <FontAwesomeIcon icon={faFireBurner} /> */}
         <img
@@ -26,6 +27,7 @@ const Home = () => {
           style={{ width: "90px", height: "90px" }}
         />
       </button>
+      </div>
     </div>
   );
 };
