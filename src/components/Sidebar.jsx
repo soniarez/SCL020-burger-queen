@@ -29,7 +29,7 @@ const Sidebar = () => {
         <li className="sidebar-li">
           <Link to="/">
             <img
-              className="sidebar-icons-end"
+              className="sidebar-icons"
               src={darkModeIcon}
               alt="dark mode icon"
             />
@@ -38,7 +38,7 @@ const Sidebar = () => {
         <li className="sidebar-li">
           <Link to="/">
             <img
-              className="sidebar-icons-end"
+              className="sidebar-icons"
               src={logoutIcon}
               alt="logout icon"
             />

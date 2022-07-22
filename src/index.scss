@@ -148,19 +148,13 @@ input {
   padding: 20px;
 }
 
-.sidebar-icons, 
-.sidebar-icons-end {
+.sidebar-icons {
   width: 5vh;
   padding: 10px;
   border-radius: 12px;
 }
 
-.sidebar-icons-end{
-  width: 4vh;
-}
-
-.sidebar-icons:hover,
-.sidebar-icons-end:hover {
+.sidebar-icons:hover {
   background-color: $color-nav-icon;
 }
 
