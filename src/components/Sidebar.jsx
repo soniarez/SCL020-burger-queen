@@ -9,23 +9,24 @@ import logoutIcon from '../assets/logoutIcon.png';
 const Sidebar = () => {
   return (
     <nav className="sidebar">
-      <ul className="ul-sidebar">
-        <li className="li-sidebar">
+      <ul className="sidebar-ul">
+        <li className="sidebar-li">
           <Link to="/">
             <img className="sidebar-icons" src={homeIcon} alt="home icon" />
           </Link>
         </li>
-        <li className="li-sidebar">
-          <Link to="/">
+        <li className="sidebar-li">
+          <Link to="/Chef">
             <img className="sidebar-icons" src={chefIcon} alt="chef icon" />
           </Link>
         </li>
-        <li className="li-sidebar">
-          <Link to="/">
+        <li className="sidebar-li">
+          <Link to="/Waiter">
             <img className="sidebar-icons" src={waiterIcon} alt="waiter icon" />
           </Link>
         </li>
-        <li className="li-sidebar">
+        <div className='sidebar-li-end'>
+        <li className="sidebar-li">
           <Link to="/">
             <img
               className="sidebar-icons"
@@ -34,11 +35,16 @@ const Sidebar = () => {
             />
           </Link>
         </li>
-        <li className="li-sidebar">
+        <li className="sidebar-li">
           <Link to="/">
-            <img className="sidebar-icons" src={logoutIcon} alt="logout icon" />
+            <img
+              className="sidebar-icons"
+              src={logoutIcon}
+              alt="logout icon"
+            />
           </Link>
         </li>
+        </div>
       </ul>
     </nav>
   );
