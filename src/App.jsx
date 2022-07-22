@@ -4,6 +4,8 @@ import './index.scss';
 import Home from './views/Home.jsx';
 import Waiter from './views/Waiter.jsx';
 import Chef from './views/Chef.jsx';
+import Incomming from './views/Incomming.jsx';
+import Ready from './views/Ready.jsx';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Waiter" element={<Waiter />} />
         <Route path="/Chef" element={<Chef />} />
+        <Route path="/Incomming" element={<Incomming />} />
+        <Route path="/Ready" element={<Ready />} />
       </Routes>
     </Router>
   );
