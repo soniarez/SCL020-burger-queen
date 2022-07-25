@@ -1,21 +1,22 @@
 import React from 'react';
-import menuB from '../data/menuB.js';
-
+import menuB from '../data/menu.js';
+ 
 const CardMenu = () => {
+  const menu = menuB.breakfast;
+  //console.log(menu)
 
-    const menu = menuB.breakfast[0];
-
-    const listItems = menu.map((items) => 
-      <li key="menu.id">{items}</li>
-    );
-
-    return (
-        <ul className="card-menu">{listItems}</ul>
-    )
-}
+  return (
+    <div className='cardmenu-container'>
+      {menu.map(item => (
+        <div className="cardmenu-items" key={item.id}>
+          <img className='cardmenu-img'  src={item.img} alt="dish img" />
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <p>{item.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default CardMenu;
-
-/* <img />
-            <p className="card-menu-description"></p>
-            <p className="card-menu-price"></p> */

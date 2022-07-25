@@ -32,7 +32,7 @@ const OrderForm = () => {
         <OrderItem />
       </div>
       <div className="orderform-payment-details">
-        <p>Quantity:</p>
+        <p>Sub Total:</p>
         <p>Tip:</p>
         <p>Total:</p>
       </div>
