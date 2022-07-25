@@ -1,0 +1,118 @@
+@use 'src/index' as s;
+
+/*ORDER FORM COMPONENT*/
+h2 {
+  font-family: heading-font-family;
+}
+
+.orderform {
+  display: flex;
+  flex-direction: column;
+  background-color: s.$color-secondary;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 20px;
+}
+
+.orderform-client {
+  margin: 20px 0px 20px 0px;
+}
+
+.orderform-tables {
+  background-color: s.$color-card;
+  margin: 0;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: s.$small-font-size;
+  font-family: s.$body-font-family;
+  font-weight: 200;
+  border: 1px solid s.$color-accent;
+}
+
+.oderform-orderitem-container {
+  flex-grow: 1;
+}
+
+.orderform-details {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.orderform-details1 {
+  flex: 0.7;
+}
+
+.orderform-details2 {
+  flex: 0.15;
+}
+
+.orderform-details3 {
+  flex: 0.15;
+  text-align: right;
+}
+
+.orderform-payment-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.orderform-btn {
+  padding: 5px;
+  width: auto;
+  height: 40px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.3);
+  background-color: s.$color-accent;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: s.$base-font-size;
+  margin-bottom: 40px;
+}
+
+/*ORDER ITEM COMPONENT*/
+.orderitem-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.orderitem-selection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderitem-delete {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderitem-input-q,
+.orderitem-input {
+  background-color: s.$color-card;
+  margin: 0;
+  width: 60%;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: s.$small-font-size;
+  font-family: s.$body-font-family;
+  font-weight: 200;
+  border: 1px solid s.$color-accent;
+}
+
+.orderitem-input-q {
+  width: 5%;
+}
+
+.orderitem-deleteicon {
+  border: 1px solid s.$color-accent;
+  padding: 6px;
+  border-radius: 8px;
+  color: s.$color-accent;
+}

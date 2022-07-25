@@ -2,7 +2,7 @@ import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
-import './OrderItem.scss';
+import './OrderForm.scss';
 
 const OrderItem = () => {
   return (
