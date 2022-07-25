@@ -36,7 +36,7 @@ const OrderForm = () => {
         <p>Tip:</p>
         <p>Total:</p>
       </div>
-      <button type="submit">Send</button>
+      <button className='orderform-btn' type="submit">Send</button>
     </form>
   );
 };
