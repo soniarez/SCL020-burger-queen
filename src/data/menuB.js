@@ -1,6 +1,5 @@
 export default {
-  name: 'breakfast',
-  items: [
+  breakfast: [
     {
       id: 'smashed avocado',
       img: '../assets/menu img/smashAvocado.png',
