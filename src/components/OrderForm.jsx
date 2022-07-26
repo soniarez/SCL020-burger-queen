@@ -25,7 +25,7 @@ const OrderForm = () => {
       ></input>
       <div className="orderform-details">
         <p className="orderform-details1">Item:</p>
-        <p className="orderform-details2">Quantity:</p>
+        <p className="orderform-details2">Qty:</p>
         <p className="orderform-details3">Total:</p>
       </div>
       <div className="oderform-orderitem-container">

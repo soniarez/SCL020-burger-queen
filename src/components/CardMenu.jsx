@@ -1,5 +1,6 @@
 import React from 'react';
 import menuB from '../data/menu.js';
+import './CardMenu.scss';
  
 const CardMenu = () => {
   const menu = menuB.breakfast;

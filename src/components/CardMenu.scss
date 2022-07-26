@@ -1,0 +1,24 @@
+@use 'src/index' as s;
+
+.cardmenu-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 60%;
+    border: 5px solid rgb(187, 255, 0);
+    justify-content: space-around;
+}
+
+.cardmenu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 320px;
+    border: 5px solid red;
+}
+
+.cardmenu-img {
+    width: 70px;
+    height: 70px;
+}

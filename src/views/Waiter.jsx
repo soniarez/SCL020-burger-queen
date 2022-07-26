@@ -5,11 +5,13 @@ import CardMenu from '../components/CardMenu.jsx';
 
 const Waiter = () => {
   return (
-    <div>
+    <div className='waiter-container'>
       <Sidebar />
+      <div className='waiter-middle'>
       <h1>Queen´s Road Cafe WAITER</h1>
       <p>Servers Name Input </p>
       <CardMenu />
+      </div>
       <OrderForm />
     </div>
   );
