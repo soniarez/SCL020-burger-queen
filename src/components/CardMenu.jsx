@@ -3,7 +3,7 @@ import menuB from '../data/menu.js';
 import './CardMenu.scss';
  
 const CardMenu = () => {
-  const menu = menuB.breakfast;
+  const menu = menuB.lunch;
   //console.log(menu)
 
   return (
@@ -13,6 +13,7 @@ const CardMenu = () => {
           <img className='cardmenu-img'  src={item.img} alt="dish img" />
           <h3>{item.title}</h3>
           <p>{item.description}</p>
+          <p>{item.size}</p>
           <p>{item.price}</p>
         </div>
       ))}
