@@ -15,7 +15,6 @@ const OrderItem = () => {
         <p>7.50</p>
       </div>
       <div className='orderitem-delete'>
-        <p>3.50</p>
         <p>Size:
         <select className='orderitem-size'>
         <option value="standard">ST</option>
@@ -23,6 +22,7 @@ const OrderItem = () => {
         <option value="large">LG</option>
         </select>
         </p>
+        <p>3.50</p>
         <FaTrash className="orderitem-deleteicon" onClick={() => console.log('click-trash')}/>
       </div>
     </div>
