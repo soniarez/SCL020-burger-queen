@@ -122,6 +122,17 @@ input {
   border: 1px solid $color-accent;
 }
 
+/*WAITER VIEW*/
+.waiter-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.waiter-middle {
+  display: flex;
+  flex-direction: column;
+}
+
 /*SIDEBAR*/
 .sidebar {
   max-width: 100px;
