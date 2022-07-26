@@ -9,41 +9,26 @@ import './OrderForm.scss';
 const OrderItem = () => {
 
   const [count, setCount] = useState(1);
-  const [quantity, setQuantity] = useState(1);
   
   const menu = menuB.breakfast[0];
-  let q = 2;
-  let total = menu.price*q;
 
   const handleAddOne =  () => {
-    if(quantity) {
-      setCount(count + parseInt(quantity,10))
-      console.log(quantity)
-    }
-    
-  }
+      setCount(count + 1)    
+  };
 
   const handleSubsOne = () => {
-    if(quantity) {
-      setCount(count - parseInt(quantity,10))
-      console.log(quantity)
-    }
-    
-  }
+      setCount(count - 1)
+  };
 
-  const handleOnChange = (e) => {
-    setQuantity(e.target.value);
-  }
-
-
+ 
   return (
     <div className='orderitem-container'>
       <div className='orderitem-selection'>
         <input className="orderitem-input" type="text" placeholder="Item"></input>
         <FaPlus onClick={handleAddOne}/>
-        <input className="orderitem-input-q" type="text" value={count}  onChange={handleOnChange}></input>
+        <input className="orderitem-input-q" type="text" min="1" value={count} ></input>
         <FaMinus onClick={handleSubsOne}/>
-        <p>{total}</p>
+        <p>{menu.price*count}</p>
       </div>
       <div className='orderitem-delete'>
         <p>Size:
