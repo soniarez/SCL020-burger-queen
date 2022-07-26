@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 60%;
+    width: 100%;
     border: 5px solid rgb(187, 255, 0);
     justify-content: space-around;
 }
@@ -13,9 +13,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
-    height: 320px;
-    border: 5px solid red;
+    justify-content: center;
+    text-align: center;
+    width: 22%;
+    height: 280px;
+    border-radius: 16px;
+    padding:10px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: s.$color-card;
+}
+
+.cardmenu-items p:last-child {
+    color: s.$color-accent;
+}
+
+.cardmenu-items p {
+    font-weight: 500;
 }
 
 .cardmenu-img {
