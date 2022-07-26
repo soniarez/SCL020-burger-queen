@@ -126,11 +126,14 @@ input {
 .waiter-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  border: 5px solid red;
 }
 
 .waiter-middle {
   display: flex;
   flex-direction: column;
+  border: 5px solid blue;
 }
 
 /*SIDEBAR*/
@@ -142,9 +145,6 @@ input {
   background-color: $color-primary;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
   height: 100vh;
   border-top-right-radius: 30px 20px;
 }

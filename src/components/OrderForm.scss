@@ -8,13 +8,11 @@ h2 {
 .orderform {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   background-color: s.$color-secondary;
-  width: 25%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
+  width: 40%;
   padding: 20px;
+  border: 5px solid black;
 }
 
 .orderform-client {
@@ -57,7 +55,7 @@ h2 {
 .orderform-payment-details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: 20%;
 }
 
 .orderform-btn {
