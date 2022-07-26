@@ -2,7 +2,6 @@ import  React, { useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
-import CardMenu from './CardMenu.jsx';
 import menuB from '../data/menu.js';
 import './OrderForm.scss';
 
@@ -20,7 +19,6 @@ const OrderItem = () => {
       setCount(count - 1)
   };
 
- 
   return (
     <div className='orderitem-container'>
       <div className='orderitem-selection'>
@@ -39,7 +37,7 @@ const OrderItem = () => {
         </select>
         </p>
         <p>{menu.price}</p>
-        <FaTrash className="orderitem-deleteicon" onClick={() => console.log('click-trash')}/>
+        <FaTrash className="orderitem-deleteicon" />
       </div>
     </div>
   );
