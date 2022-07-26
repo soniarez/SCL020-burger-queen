@@ -13,6 +13,7 @@ const CardMenu = () => {
           <img className='cardmenu-img'  src={item.img} alt="dish img" />
           <h3>{item.title}</h3>
           <p>{item.description}</p>
+          <p>{item.size}</p>
           <p>{item.price}</p>
         </div>
       ))}
