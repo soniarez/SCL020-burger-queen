@@ -9,7 +9,6 @@ const Waiter = () => {
       <Sidebar />
       <div className='waiter-middle'>
       <h1>Queen´s Road Cafe WAITER</h1>
-      <p>Servers Name Input </p>
       <CardMenu />
       </div>
       <OrderForm />
