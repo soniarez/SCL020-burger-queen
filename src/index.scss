@@ -65,8 +65,17 @@ body {
   font-weight: 200;
 }
 
+h1 {
+  font-family: heading-font-family;
+  color: $color-dark;
+}
+
 ul {
   list-style-type: none;
+}
+
+li {
+  pointer-events: none;
 }
 
 .home-container {
@@ -135,6 +144,16 @@ input {
   display: flex;
   flex-direction: column;
   border: 5px solid blue;
+  padding: 10px;
+}
+
+.waiter-category {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-between;
+  font-weight: 500;
+  color: $color-dark;
 }
 
 /*SIDEBAR*/

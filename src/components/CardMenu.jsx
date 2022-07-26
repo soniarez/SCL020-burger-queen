@@ -1,10 +1,10 @@
-import React from 'react';
-import menuB from '../data/menu.js';
+import React, { useState } from 'react';
+// import menuB from '../data/menu.js';
 import './CardMenu.scss';
  
 const CardMenu = () => {
-  const menu = menuB.breakfast;
-  //console.log(menu)
+
+  const [menu, setMenu] = useState(menu);
 
   return (
     <div className='cardmenu-container'>
