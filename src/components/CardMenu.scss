@@ -5,7 +5,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-    border: 5px solid rgb(187, 255, 0);
+    // border: 5px solid rgb(187, 255, 0);
     justify-content: space-around;
 }
 
@@ -13,9 +13,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    width: 22%;
+    width: 25%;
     height: 280px;
     border-radius: 16px;
     padding:10px;
@@ -28,10 +27,11 @@
 }
 
 .cardmenu-items p {
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .cardmenu-img {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
+    padding-top: 3px;
 }

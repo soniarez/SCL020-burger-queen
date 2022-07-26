@@ -9,12 +9,19 @@ const OrderItem = () => {
     <div className='orderitem-container'>
       <div className='orderitem-selection'>
         <input className="orderitem-input" type="text" placeholder="Item"></input>
-        <FaPlus onClick={() => console.log('click-item')} />
+        <FaPlus onClick={() => console.log('add item')} />
         <input className="orderitem-input-q" type="text"></input>
-        <FaMinus onClick={() => console.log('click-q')} />
+        <FaMinus onClick={() => console.log('remove item')} />
         <p>7.50</p>
       </div>
       <div className='orderitem-delete'>
+        <p>Size:
+        <select className='orderitem-size'>
+        <option value="standard">ST</option>
+        <option value="small">SM</option>
+        <option value="large">LG</option>
+        </select>
+        </p>
         <p>3.50</p>
         <FaTrash className="orderitem-deleteicon" onClick={() => console.log('click-trash')}/>
       </div>
