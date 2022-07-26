@@ -5,7 +5,7 @@ import './OrderForm.scss';
 const OrderForm = () => {
   return (
     <form className="orderform">
-      <h2>Order #</h2>
+      <h2>Order #572192</h2>
       <select className="orderform-tables">
         <option value="table-1">Table 1</option>
         <option value="table-2">Table 2</option>
@@ -24,9 +24,9 @@ const OrderForm = () => {
         placeholder="Client Name"
       ></input>
       <div className="orderform-details">
-        <p className="orderform-details1">Item:</p>
-        <p className="orderform-details2">Qty:</p>
-        <p className="orderform-details3">Total:</p>
+        <p className="orderform-details1">Item</p>
+        <p className="orderform-details2">Qty</p>
+        <p className="orderform-details3">Total</p>
       </div>
       <div className="oderform-orderitem-container">
         <OrderItem />
