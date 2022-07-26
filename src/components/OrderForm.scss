@@ -2,7 +2,10 @@
 
 /*ORDER FORM COMPONENT*/
 h2 {
-  font-family: heading-font-family;
+  font-family: 'Playfair Display';
+  font-weight: 400;
+  color: s.$color-dark;
+  font-size: 26px;
 }
 
 .orderform {
@@ -11,6 +14,8 @@ h2 {
   justify-content: space-between;
   background-color: s.$color-secondary;
   width: 40%;
+  max-width: 350px;
+  min-width: 310px;
   padding: 20px;
   border: 5px solid black;
 }
@@ -21,13 +26,13 @@ h2 {
 
 .orderform-tables {
   background-color: s.$color-card;
-  margin: 0;
   padding: 4px;
   border-radius: 4px;
   font-size: s.$small-font-size;
   font-family: s.$body-font-family;
   font-weight: 200;
   border: 1px solid s.$color-accent;
+  width: 35%;
 }
 
 .oderform-orderitem-container {
@@ -37,6 +42,7 @@ h2 {
 .orderform-details {
   display: flex;
   justify-content: space-evenly;
+  border-top: 1px solid s.$color-dark;
 }
 
 .orderform-details1 {
@@ -52,10 +58,20 @@ h2 {
   text-align: right;
 }
 
+.orderform-details p {
+  font-weight: 500;
+  color: s.$color-dark;
+  font-size: 17px;
+}
+
 .orderform-payment-details {
   display: flex;
   flex-direction: column;
-  height: 20%;
+  border-top: 1px solid s.$color-dark;
+  line-height: 0;
+  color: s.$color-dark;
+  font-weight: 600;
+  padding: 10px;
 }
 
 .orderform-btn {
@@ -69,7 +85,6 @@ h2 {
   color: white;
   font-weight: 500;
   font-size: s.$base-font-size;
-  margin-bottom: 40px;
 }
 
 /*ORDER ITEM COMPONENT*/
@@ -90,6 +105,7 @@ h2 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  line-height: 0;
 }
 
 .orderitem-input-q,
