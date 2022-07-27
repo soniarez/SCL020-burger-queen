@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar.jsx';
 import OrderForm from '../components/OrderForm.jsx';
 import CardMenu from '../components/CardMenu.jsx';
 
 const Waiter = () => {
 const [ menu, setMenu ]  = useState("breakfast");
-
-/* useEffect(() => {
-const bod = document.body;
-console.log(bod);
-}) */
-
 
   return (
     <div className='waiter-container'>

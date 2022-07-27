@@ -29,7 +29,7 @@ const OrderForm = () => {
         <p className="orderform-details3">Total</p>
       </div>
       <div className="oderform-orderitem-container">
-       
+       <OrderItem />
       </div>
       <div className="orderform-payment-details">
         <p>Sub Total:</p>
