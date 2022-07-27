@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-// import menuB from '../data/menu.js';
+import menu from '../data/menu.js';
 import './CardMenu.scss';
  
-const CardMenu = () => {
+const CardMenu = ({ category }) => {
 
-  const [menu, setMenu] = useState(menu);
+console.log(category, "im category in CardMenu")
 
   return (
     <div className='cardmenu-container'>
-      {menu.map(item => (
+      {menu[category].map(item => (
         <div className="cardmenu-items" key={item.id}>
           <img className='cardmenu-img'  src={item.img} alt="dish img" />
           <h3>{item.title}</h3>

@@ -75,9 +75,10 @@ ul {
 }
 
 li {
-  pointer-events: none;
+  cursor: pointer;
 }
-
+ 
+ 
 .home-container {
   display: flex;
   flex-direction: column;
