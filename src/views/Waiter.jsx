@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar.jsx';
 import OrderForm from '../components/OrderForm.jsx';
 import CardMenu from '../components/CardMenu.jsx';
 
 const Waiter = () => {
+const [ menu, setMenu ]  = useState("breakfast");
+
+/* useEffect(() => {
+const bod = document.body;
+console.log(bod);
+}) */
+
 
   return (
     <div className='waiter-container'>
@@ -11,13 +18,13 @@ const Waiter = () => {
       <div className='waiter-middle'>
       <h1>Queen´s Road Cafe WAITER</h1>
       <ul className='waiter-category'>
-        <li onClick={() => console.log("hi in breakfast")}>Breakfast</li>
-        <li>Lunch & All Day</li>
-        <li>On the Side</li>
-        <li>Drinks</li>
-        <li>Sweet Tooth</li>
+        <li onClick={() => setMenu("breakfast")}>Breakfast</li>
+        <li onClick={() => setMenu("lunch")}>Lunch & All Day</li>
+        <li onClick={() => setMenu("sides")}>On the Side</li>
+        <li onClick={() => setMenu("drinks")}>Drinks</li>
+        <li onClick={() => setMenu("sweets")}>Sweet Tooth</li>
       </ul>
-      <CardMenu />
+      <CardMenu category={menu} />
       </div>
       <OrderForm />
     </div>
