@@ -5,11 +5,9 @@ import { FaTrash } from 'react-icons/fa';
 import menuB from '../data/menu.js';
 import './OrderForm.scss';
 
-const OrderItem = () => {
+const OrderItem = ({selection}) => {
 
   const [count, setCount] = useState(1);
-  
-  const menu = menuB.breakfast[0];
 
   const handleAddOne =  () => {
       setCount(count + 1)    
@@ -26,7 +24,7 @@ const OrderItem = () => {
         <FaPlus onClick={handleAddOne}/>
         <input className="orderitem-input-q" type="text" min="1" value={count} ></input>
         <FaMinus onClick={handleSubsOne}/>
-        <p>{menu.price*count}</p>
+        <p>{selection.price*count}</p>
       </div>
       <div className='orderitem-delete'>
         <p>Size:
@@ -36,7 +34,7 @@ const OrderItem = () => {
         <option value="large">LG</option>
         </select>
         </p>
-        <p>{menu.price}</p>
+        <p>{selection.price}</p>
         <FaTrash className="orderitem-deleteicon" />
       </div>
     </div>

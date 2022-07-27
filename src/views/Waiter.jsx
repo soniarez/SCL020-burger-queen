@@ -5,6 +5,9 @@ import CardMenu from '../components/CardMenu.jsx';
 
 const Waiter = () => {
 const [ menu, setMenu ]  = useState("breakfast");
+const [ dish, setDish ] = useState('');
+
+
 
   return (
     <div className='waiter-container'>
@@ -18,9 +21,9 @@ const [ menu, setMenu ]  = useState("breakfast");
         <li onClick={() => setMenu("drinks")}>Drinks</li>
         <li onClick={() => setMenu("sweets")}>Sweet Tooth</li>
       </ul>
-      <CardMenu category={menu} />
+      <CardMenu category={menu} onClick={() => setDish(dish)}/>
       </div>
-      <OrderForm />
+      <OrderForm dish={dish}/>
     </div>
   );
 };
