@@ -10,8 +10,8 @@ console.log(category, "im category in CardMenu")
 
   return (
     <div className='cardmenu-container'>
-      {menu[category].map(item => (
-        <div className="cardmenu-items" key={item.id} onClick={onClick}>
+      {menu[category].map((item, index) => (
+        <div className="cardmenu-items" key={index} onClick={onClick}>
           <img className='cardmenu-img'  src={item.img} alt="dish img" />
           <h3>{item.title}</h3>
           <p>{item.description}</p>
