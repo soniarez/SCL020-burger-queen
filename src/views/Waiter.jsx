@@ -7,7 +7,10 @@ const Waiter = () => {
 const [ menu, setMenu ]  = useState("breakfast");
 const [ dish, setDish ] = useState('');
 
-
+const selectedDish = (dish) => {
+  setDish(dish);
+  console.log(dish, "dish in selecteDish-waiter");
+}
 
   return (
     <div className='waiter-container'>
@@ -21,7 +24,7 @@ const [ dish, setDish ] = useState('');
         <li onClick={() => setMenu("drinks")}>Drinks</li>
         <li onClick={() => setMenu("sweets")}>Sweet Tooth</li>
       </ul>
-      <CardMenu category={menu} onClick={() => setDish(dish)}/>
+      <CardMenu category={menu} selectedDish={selectedDish}/>
       </div>
       <OrderForm dish={dish}/>
     </div>
