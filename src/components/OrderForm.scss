@@ -13,11 +13,9 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   background-color: s.$color-secondary;
-  width: 40%;
   max-width: 350px;
   min-width: 310px;
-  padding: 20px;
-  border: 5px solid black;
+  padding: 30px;
 }
 
 .orderform-client {
@@ -34,6 +32,10 @@ h2 {
   font-weight: 200;
   border: 1px solid s.$color-accent;
   width: 35%;
+}
+
+.orderitem-size {
+  width: 20%;
 }
 
 .oderform-orderitem-container {
@@ -101,6 +103,10 @@ h2 {
   justify-content: space-between;
 }
 
+.orderitem-selection p {
+  width: 35px;
+}
+
 .orderitem-delete {
   display: flex;
   flex-direction: row;
@@ -123,7 +129,8 @@ h2 {
 }
 
 .orderitem-input-q {
-  width: 5%;
+  width: 6%;
+  text-align: center;
 }
 
 .orderitem-deleteicon {

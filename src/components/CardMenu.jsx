@@ -16,7 +16,7 @@ const CardMenu = ({ category, selectedDish }) => {
           <h3>{item.title}</h3>
           <p>{item.description}</p>
           <p>{item.size}</p>
-          <p>{item.price}</p>
+          <p>${item.price}</p>
         </div>
       ))}
     </div>

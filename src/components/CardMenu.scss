@@ -1,37 +1,47 @@
 @use 'src/index' as s;
 
 .cardmenu-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
     width: 100%;
-    // border: 5px solid rgb(187, 255, 0);
-    justify-content: space-around;
 }
 
 .cardmenu-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
-    width: 25%;
-    height: 280px;
+    width: 100%;
+    max-width: 150px;
+    height: 250px;
+    margin: 21px;
     border-radius: 16px;
-    padding:10px;
-    box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: s.$color-card;
+    cursor: pointer;
 }
 
 .cardmenu-items p:last-child {
     color: s.$color-accent;
+    font-weight: 600;
+    font-size: s.$base-font-size;
 }
 
 .cardmenu-items p {
-    font-weight: 400;
+    font-size: s.$small-font-size;
+}
+
+.cardmenu-items h3 {
+    color: s.$color-dark;
 }
 
 .cardmenu-img {
-    width: 50px;
-    height: 50px;
-    padding-top: 3px;
+    width: 70px;
+    height: 70px;
+    border-radius: 20%;
 }
+
+@media screen and (min-width: 1200px) {
+    .cardmenu-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+  }

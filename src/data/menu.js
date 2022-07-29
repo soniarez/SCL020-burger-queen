@@ -33,10 +33,10 @@ export default {
     },
     {
       id: 'lunch02',
-      title: 'Oak smoked salmon sandwich',
+      title: 'Smoked salmon sandwich',
       img: 'https://images.unsplash.com/photo-1610439901577-cf832e5c2320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
       description:
-        'Smoked salmon with eggs, avocado, lettuce, and lemon mustard',
+        'Smoked salmon with eggs, avocado and lemon mustard',
       price: 19.50,
     },
     {
@@ -44,7 +44,7 @@ export default {
       title: 'Veggie sandwich',
       img: 'https://images.unsplash.com/photo-1655279562015-047c3da9a271?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=466&q=80',
       description:
-        'Mozzarella sandwich with grilled vegetales, tomato, lettuce, basil pesto and ricotta',
+        'Mozzarella sandwich with grilled vegetales and ricotta',
       price: 11.50,
     },
   ],
@@ -55,7 +55,7 @@ export default {
       title: 'Heritage salad',
       img: 'https://images.unsplash.com/photo-1505576633757-0ac1084af824?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
       description:
-        'Salad with tomatoes, burrata with basil, balsamic and olive oil',
+        'Salad with tomatoes, burrata with basil and olive oil',
       price: 8.50,
     },
     {
@@ -92,24 +92,23 @@ export default {
 
     {
       id: 'drink04',
-      title: 'Floral chamomile tea- Hot',
+      title: 'Floral chamomile tea',
       img: 'https://images.unsplash.com/photo-1593487806527-40dcc19864bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80',
-      description:
-        'A relaxing herbal infusion of roseshio, rose petals and lavander',
+      description: '',
       price: 5.50,
     },
     {
       id: 'drink05',
-      title: 'Americano- Hot',
+      title: 'Americano',
       img: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-      description: 'Hot coffee italian style',
+      description: '',
       price: 3.50,
     },
     {
       id: 'drink06',
-      title: 'Sweet dreams latte- Hot',
+      title: 'Sweet dreams latte',
       img: 'https://images.unsplash.com/photo-1623193893875-b74cfcd406b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-      description: 'Steamed milk, rose syrup, and dried rose petals',
+      description: '',
       price: 5.75,
     },
   ],
@@ -120,7 +119,7 @@ export default {
       title: 'Macarons',
       img: 'https://images.unsplash.com/photo-1558024920-b41e1887dc32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
       description:
-        'Three delicious macarons: english rose, pistachio and vanilla',
+        'Three macarons: english rose, pistachio and vanilla',
       price: 7.50,
     },
     {

@@ -16,7 +16,7 @@ const selectedDish = (dish) => {
     <div className='waiter-container'>
       <Sidebar />
       <div className='waiter-middle'>
-      <h1>Queen´s Road Cafe WAITER</h1>
+      <h1>Queen's Road Cafe</h1>
       <ul className='waiter-category'>
         <li onClick={() => setMenu("breakfast")}>Breakfast</li>
         <li onClick={() => setMenu("lunch")}>Lunch & All Day</li>
