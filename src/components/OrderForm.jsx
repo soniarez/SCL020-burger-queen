@@ -34,7 +34,7 @@ const OrderForm = () => {
       </div>
       <div className="oderform-orderitem-container">
        {selected.map((item, index) => (
-        <OrderItem selection={item} key={index}/>
+        <OrderItem selection={item} key={index} />
        ))}
       </div>
       <div className="orderform-payment-details">

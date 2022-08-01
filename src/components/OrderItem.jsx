@@ -8,6 +8,8 @@ import './OrderForm.scss';
 const OrderItem = ({selection}) => {
   const [count, setCount] = useState(1);
 
+  const {deleteDish} = useContext(SelectionContext);
+
   const handleAddOne = () => {
     setCount(count + 1);
   };
@@ -40,12 +42,11 @@ const OrderItem = ({selection}) => {
           <option value="" disabled selected>
             Size
           </option>
-          <option value="standard">ST</option>
           <option value="small">SM</option>
           <option value="large">LG</option>
         </select>
         <p>{selection.price}</p>
-        <FaTrash className="orderitem-deleteicon" />
+        <FaTrash onClick={() => deleteDish(selection.id)} className="orderitem-deleteicon" />
       </div>
     </div>
   );
