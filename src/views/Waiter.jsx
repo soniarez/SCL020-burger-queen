@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar.jsx';
 import OrderForm from '../components/OrderForm.jsx';
-import OrderItem from '../components/OrderItem.jsx';
 import CardMenu from '../components/CardMenu.jsx';
 
 const Waiter = () => {
@@ -21,7 +20,7 @@ const [ menu, setMenu ]  = useState("breakfast");
       </ul>
       <CardMenu category={menu} />
       </div>
-      <OrderForm><OrderItem /></OrderForm>
+      <OrderForm />
     </div>
   );
 };

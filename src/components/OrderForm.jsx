@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import SelectionContext from '../context/Context';
 import './OrderForm.scss';
+import OrderItem from './OrderItem';
 
-const OrderForm = ({children}) => {
+const OrderForm = () => {
+
+  const {selected} = useContext(SelectionContext);
 
   return (
     <form className="orderform">
@@ -29,7 +33,9 @@ const OrderForm = ({children}) => {
         <p className="orderform-details3">Total</p>
       </div>
       <div className="oderform-orderitem-container">
-       {children}
+       {selected.map((item, index) => (
+        <OrderItem selection={item} key={index}/>
+       ))}
       </div>
       <div className="orderform-payment-details">
         <p>Sub Total:</p>
