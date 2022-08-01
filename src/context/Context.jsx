@@ -8,8 +8,13 @@ export const SelectionProvider = ({children}) => {
     const addDish = (item) => {
         setSelected((prevState) => [...prevState, item]);
     }
+
+    const deleteDish = (id) => {
+        setSelected(selected.filter((item) => item.id !== id))
+    }
+
     return (
-        <SelectionContext.Provider value={{selected, addDish}}>{children}</SelectionContext.Provider>
+        <SelectionContext.Provider value={{selected, addDish, deleteDish}}>{children}</SelectionContext.Provider>
     )
 }
 
