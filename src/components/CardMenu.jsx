@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import menu from '../data/menu.js';
+import React, { useContext } from 'react';
+import SelectionContext from '../context/Context';
+import menu from '../data/menu.json';
 import './CardMenu.scss';
  
-const CardMenu = ({ category, selectedDish }) => {
+const CardMenu = ({ category }) => {
 
-  //const [item, setItem] = useState('');
+  const {addDish} = useContext(SelectionContext);
 
-//console.log(category, "im category in CardMenu")
+  const filteredMenu = menu.menu.filter((element) => {
+    return element.type === category;
+  });
 
   return (
     <div className='cardmenu-container'>
-      {menu[category].map((item, index) => (
-        <div className="cardmenu-items" key={index} onClick={() => selectedDish(item)}>
+      {filteredMenu.map((item, index) => (
+        <div className="cardmenu-items" key={index} onClick={() => addDish(item)}>
           <img className='cardmenu-img'  src={item.img} alt="dish img" />
           <h3>{item.title}</h3>
           <p>{item.description}</p>

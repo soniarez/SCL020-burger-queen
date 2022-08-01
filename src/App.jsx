@@ -6,9 +6,11 @@ import Waiter from './views/Waiter.jsx';
 import Chef from './views/Chef.jsx';
 import Incomming from './views/Incomming.jsx';
 import Ready from './views/Ready.jsx';
+import { SelectionProvider } from './context/Context.jsx';
 
 function App() {
   return (
+    <SelectionProvider>
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -18,6 +20,7 @@ function App() {
         <Route path="/Ready" element={<Ready />} />
       </Routes>
     </Router>
+    </SelectionProvider>
   );
 }
 
