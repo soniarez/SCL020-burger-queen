@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar.jsx';
 import OrderForm from '../components/OrderForm.jsx';
+import OrderItem from '../components/OrderItem.jsx';
 import CardMenu from '../components/CardMenu.jsx';
 
 const Waiter = () => {
 const [ menu, setMenu ]  = useState("breakfast");
-const [ dish, setDish ] = useState('');
-
-const selectedDish = (dish) => {
-  setDish(dish);
-  console.log(dish, "dish in selecteDish-waiter");
-}
 
   return (
     <div className='waiter-container'>
@@ -24,9 +19,9 @@ const selectedDish = (dish) => {
         <li onClick={() => setMenu("drinks")}>Drinks</li>
         <li onClick={() => setMenu("sweets")}>Sweet Tooth</li>
       </ul>
-      <CardMenu category={menu} selectedDish={selectedDish}/>
+      <CardMenu category={menu} />
       </div>
-      <OrderForm dish={dish}/>
+      <OrderForm><OrderItem /></OrderForm>
     </div>
   );
 };

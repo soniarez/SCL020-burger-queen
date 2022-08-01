@@ -1,8 +1,8 @@
 import React from 'react';
-import OrderItem from './OrderItem.jsx';
 import './OrderForm.scss';
 
-const OrderForm = ({dish}) => {
+const OrderForm = ({children}) => {
+
   return (
     <form className="orderform">
       <h2>Order #572192</h2>
@@ -29,7 +29,7 @@ const OrderForm = ({dish}) => {
         <p className="orderform-details3">Total</p>
       </div>
       <div className="oderform-orderitem-container">
-       <OrderItem selection={dish}/>
+       {children}
       </div>
       <div className="orderform-payment-details">
         <p>Sub Total:</p>
