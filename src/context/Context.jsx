@@ -7,7 +7,6 @@ export const SelectionProvider = ({children}) => {
 
     const addDish = (item) => {
         setSelected((prevState) => [...prevState, item]);
-        console.log(item.id);
     }
 
     const deleteDish = (id) => {

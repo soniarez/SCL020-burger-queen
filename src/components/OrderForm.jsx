@@ -7,6 +7,15 @@ const OrderForm = () => {
 
   const {selected} = useContext(SelectionContext);
 
+  const prices = selected.map((item) => parseFloat(item.price));
+
+  const reducer = (partialSum, a) => {
+    return partialSum + a;
+  };
+
+  const total = prices.reduce(reducer,0);
+  const tip = parseFloat(total*0.10).toPrecision(2);
+
   return (
     <form className="orderform">
       <h2>Order #572192</h2>
@@ -38,9 +47,9 @@ const OrderForm = () => {
        ))}
       </div>
       <div className="orderform-payment-details">
-        <p>Sub Total:</p>
-        <p>Tip:</p>
-        <p>Total:</p>
+        <p>Sub Total:{total}</p>
+        <p>Tip:{tip}</p>
+        <p>Total:{parseFloat(total) + parseFloat(tip)}</p>
       </div>
       <button className='orderform-btn' type="submit">Send</button>
     </form>
