@@ -5,18 +5,8 @@ import { FaTrash } from 'react-icons/fa';
 import SelectionContext from '../context/Context';
 import './OrderForm.scss';
 
-const OrderItem = ({selection}) => {
-  const [count, setCount] = useState(1);
-
-  const {deleteDish} = useContext(SelectionContext);
-
-  const handleAddOne = () => {
-    setCount(count + 1);
-  };
-
-  const handleSubsOne = () => {
-    setCount(count - 1);
-  };
+const OrderItem = ({ selection }) => {
+  const { addDish, removeDish, deleteDish } = useContext(SelectionContext);
 
   return (
     <div className="orderitem-container">
@@ -27,15 +17,14 @@ const OrderItem = ({selection}) => {
           placeholder="Item"
           value={selection.title}
         ></input>
-        <FaPlus onClick={handleAddOne} />
+        <FaPlus onClick={() => addDish(selection)} />
         <input
           className="orderitem-input-q"
           type="text"
-          min="1"
-          value={count}
+          value={selection.count}
         ></input>
-        <FaMinus onClick={handleSubsOne} />
-        <p>{selection.price * count}</p>
+        <FaMinus onClick={() => removeDish(selection)} />
+        <p>${selection.price * selection.count}</p>
       </div>
       <div className="orderitem-delete">
         <select className="orderitem-size">
@@ -45,8 +34,11 @@ const OrderItem = ({selection}) => {
           <option value="small">SM</option>
           <option value="large">LG</option>
         </select>
-        <p>{selection.price}</p>
-        <FaTrash onClick={() => deleteDish(selection.id)} className="orderitem-deleteicon" />
+        <p>${selection.price}</p>
+        <FaTrash
+          onClick={() => deleteDish(selection.id)}
+          className="orderitem-deleteicon"
+        />
       </div>
     </div>
   );

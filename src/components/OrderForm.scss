@@ -16,6 +16,8 @@ h2 {
   max-width: 350px;
   min-width: 310px;
   padding: 30px;
+  overflow: hidden;
+  scrollbar-width: none;
 }
 
 .orderform-client {
@@ -40,6 +42,8 @@ h2 {
 
 .oderform-orderitem-container {
   flex-grow: 1;
+  overflow-y: scroll;
+  max-height: 300px;
 }
 
 .orderform-details {

@@ -4,17 +4,17 @@ import './OrderForm.scss';
 import OrderItem from './OrderItem';
 
 const OrderForm = () => {
+  const { selected } = useContext(SelectionContext);
+  let tip;
+  let subTotal;
 
-  const {selected} = useContext(SelectionContext);
-
-  const prices = selected.map((item) => parseFloat(item.price));
-
-  const reducer = (partialSum, a) => {
-    return partialSum + a;
+  const priceOrder = () => {
+    let count = 0;
+    selected.map(item => {
+      count += item.price * item.count;
+    });
+    return count;
   };
-
-  const total = prices.reduce(reducer,0);
-  const tip = parseFloat(total*0.10).toPrecision(2);
 
   return (
     <form className="orderform">
@@ -42,16 +42,18 @@ const OrderForm = () => {
         <p className="orderform-details3">Total</p>
       </div>
       <div className="oderform-orderitem-container">
-       {selected.map((item, index) => (
-        <OrderItem selection={item} key={index} />
-       ))}
+        {selected.map((item, index) => (
+          <OrderItem selection={item} key={index} />
+        ))}
       </div>
       <div className="orderform-payment-details">
-        <p>Sub Total:{total}</p>
-        <p>Tip:{tip}</p>
-        <p>Total:{parseFloat(total) + parseFloat(tip)}</p>
+        <p>Sub Total:${(subTotal = priceOrder()).toFixed(2)}</p>
+        <p>Tip:${(tip = (subTotal * 0.1).toFixed(2))}</p>
+        <p>Total:${(parseFloat(tip) + parseFloat(subTotal)).toFixed(2)}</p>
       </div>
-      <button className='orderform-btn' type="submit">Send</button>
+      <button className="orderform-btn" type="submit">
+        Send
+      </button>
     </form>
   );
 };
