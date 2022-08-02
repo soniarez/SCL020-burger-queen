@@ -2,20 +2,56 @@ import React, { createContext, useState } from 'react';
 
 const SelectionContext = createContext();
 
-export const SelectionProvider = ({children}) => {
-    const [selected, setSelected] = useState([]);
+export const SelectionProvider = ({ children }) => {
+  const [selected, setSelected] = useState([]);
+  const [count, setCount] = useState(0);
 
-    const addDish = (item) => {
-        setSelected((prevState) => [...prevState, item]);
+  //ADD DISH
+  const addDish = product => {
+    //setSelected((prevState) => [...prevState, product]);
+    const isDishPresent = selected.some(item => item.id === product.id);
+    if (isDishPresent) {
+      const updatedSelected = selected.map(item => {
+        if (item.id === product.id) {
+          return { ...item, count: ++item.count };
+        }
+        return item;
+      });
+      setSelected(updatedSelected);
+    } else {
+      setSelected([...selected, { ...product, count: 1 }]);
     }
+  };
 
-    const deleteDish = (id) => {
-        setSelected(selected.filter((item) => item.id !== id))
+  //REMOVE DISH
+  const removeDish = product => {
+    //setSelected((prevState) => [...prevState, product]);
+    const isDishPresent = selected.some(item => item.id === product.id);
+    if (isDishPresent) {
+      const updatedSelected = selected.map(item => {
+        if (item.id === product.id) {
+          return { ...item, count: --item.count };
+        }
+        return item;
+      });
+      setSelected(updatedSelected);
+    } else {
+      setSelected([...selected, { ...product, count: 1 }]);
     }
+  };
 
-    return (
-        <SelectionContext.Provider value={{selected, addDish, deleteDish}}>{children}</SelectionContext.Provider>
-    )
-}
+  //DELETE DISH
+  const deleteDish = id => {
+    setSelected(selected.filter(item => item.id !== id));
+  };
+
+  return (
+    <SelectionContext.Provider
+      value={{ selected, addDish, deleteDish, count, setCount, removeDish }}
+    >
+      {children}
+    </SelectionContext.Provider>
+  );
+};
 
 export default SelectionContext;
