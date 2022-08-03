@@ -1,16 +1,23 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar.jsx';
-import OrderItem from '../components/OrderItem.jsx';
+import CardChef from '../components/CardChef.jsx';
 
 const Chef = () => {
-  return (
-    <div>
-      <Sidebar />
-      <h1>Queen´s Road Cafe CHEF</h1>
-      <p>Servers input</p>
-      <OrderItem />
-    </div>
-  );
-};
-
-export default Chef;
+  
+    return (
+      <div className='chef-container'>
+        <Sidebar />
+        <div className='chef-middle'>
+        <h1>Queen's Road Cafe</h1>
+        <ul className='chef-category'>
+          <li>Cooking</li>
+          <li>Ready</li>
+        </ul>
+        <h2>{/*status*/}</h2>
+        <CardChef />
+        </div>
+      </div>
+    );
+  };
+  
+  export default Chef;

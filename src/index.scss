@@ -1,8 +1,4 @@
-@font-face {
-  src: url('./assets/fonts/PlayfairDisplay-Regular.ttf');
-  font-family: 'Playfair Display', sans-serif;
-  font-weight: 400;
-}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 @font-face {
   src: url('./assets/fonts/PlayfairDisplay-SemiBold.ttf');
@@ -49,6 +45,7 @@ $color-dark: #393C49;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 body {
@@ -132,36 +129,42 @@ input {
   border: 1px solid $color-accent;
 }
 
-/*WAITER VIEW*/
-.waiter-container {
+/*WAITER & CHEF VIEW*/
+.waiter-container,
+.chef-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   width:100%;
   background-color: $color-bg;
 }
 
-.waiter-middle {
+.waiter-middle,
+.chef-middle {
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
 
-.waiter-category {
+.waiter-category,
+.chef-category {
   display: flex;
   flex-direction: row;
   width: 80%;
   justify-content: space-between;
   font-weight: 400;
   color: $color-dark;
+  text-align: start;
   border-bottom:1px solid $color-dark;
 }
 
-.waiter-category li:hover {
+.waiter-category li:hover,
+.chef-category li:hover {
   color: $color-accent;
 }
 
-.waiter-category li {
+.waiter-category li,
+.chef-category li {
  margin: 5px;
 }
 

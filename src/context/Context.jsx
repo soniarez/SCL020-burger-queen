@@ -8,7 +8,6 @@ export const SelectionProvider = ({ children }) => {
 
   //ADD DISH
   const addDish = product => {
-    //setSelected((prevState) => [...prevState, product]);
     const isDishPresent = selected.some(item => item.id === product.id);
     if (isDishPresent) {
       const updatedSelected = selected.map(item => {
@@ -25,7 +24,6 @@ export const SelectionProvider = ({ children }) => {
 
   //REMOVE DISH
   const removeDish = product => {
-    //setSelected((prevState) => [...prevState, product]);
     const isDishPresent = selected.some(item => item.id === product.id);
     if (isDishPresent) {
       const updatedSelected = selected.map(item => {

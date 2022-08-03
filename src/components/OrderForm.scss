@@ -13,8 +13,7 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   background-color: s.$color-secondary;
-  max-width: 350px;
-  min-width: 310px;
+  width:350px;
   padding: 30px;
   overflow: hidden;
   scrollbar-width: none;
@@ -75,7 +74,6 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid red;
   border-top: 1px solid s.$color-dark;
   line-height: 0;
   color: s.$color-dark;
