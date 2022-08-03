@@ -1,15 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import axios from 'axios';
 import SelectionContext from '../context/Context';
-import menu from '../data/menu.json';
 import './CardMenu.scss';
  
 const CardMenu = ({ category }) => {
 
   const {addDish} = useContext(SelectionContext);
 
-  const filteredMenu = menu.menu.filter((element) => {
-    return element.type === category;
+  // useEffect(() => {
+    
+  // }
+  // fetchMenu();
+  // }, [])
+
+  // const grabPlayerScores = async function () {
+  //   let players = await getUsernames();
+  //   for (i = 0; i = players.length; i++) {
+  //     let data = await chessAPI.getPlayerStats(players[i]);
+  //     console.log(data)
+  //   }
+  // }
+
+  const fetchMenu = async () => {
+    let res = await axios.get('https://burgerqueen.barrenechea.cl/menu');
+    let data = await res.data;
+    return data;
+  }
+
+  const filteredMenu = async () => {
+    const data = await fetchMenu();
+    data.filter((element) => {
+     element.type === category;
   });
+}
+
+filteredMenu().then(console.log);
 
   return (
     <div className='cardmenu-container'>
