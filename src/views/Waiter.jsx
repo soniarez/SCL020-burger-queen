@@ -4,7 +4,7 @@ import OrderForm from '../components/OrderForm.jsx';
 import CardMenu from '../components/CardMenu.jsx';
 
 const Waiter = () => {
-const [ menu, setMenu ]  = useState("breakfast");
+const [ category, setCategory ]  = useState("breakfast");
 
   return (
     <div className='waiter-container'>
@@ -12,13 +12,13 @@ const [ menu, setMenu ]  = useState("breakfast");
       <div className='waiter-middle'>
       <h1>Queen's Road Cafe</h1>
       <ul className='waiter-category'>
-        <li onClick={() => setMenu("breakfast")}>Breakfast</li>
-        <li onClick={() => setMenu("lunch")}>Lunch & All Day</li>
-        <li onClick={() => setMenu("sides")}>On the Side</li>
-        <li onClick={() => setMenu("drinks")}>Drinks</li>
-        <li onClick={() => setMenu("sweets")}>Sweet Tooth</li>
+        <li onClick={() => setCategory("breakfast")}>Breakfast</li>
+        <li onClick={() => setCategory("lunch")}>Lunch & All Day</li>
+        <li onClick={() => setCategory("sides")}>On the Side</li>
+        <li onClick={() => setCategory("drinks")}>Drinks</li>
+        <li onClick={() => setCategory("sweets")}>Sweet Tooth</li>
       </ul>
-      <CardMenu category={menu} />
+      <CardMenu category={category} />
       </div>
       <OrderForm />
     </div>
