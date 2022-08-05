@@ -10,10 +10,10 @@ const OrderForm = () => {
   const [customer, setCustomer] = useState('');
   const [order, setOrder] = useState({});
 
-  let tip;
-  let subTotal;
-
-  const newOrder = (arr) => {
+  
+  const newOrder = (e) => {
+    e.preventDefault();
+    let arr = selected;
     const obj = {
       table: table,
       customer: customer,
@@ -26,9 +26,9 @@ const OrderForm = () => {
       obj.items.push(itemObj);
       console.log(obj);
     }
-    setOrder(obj);
-    sendOrder(order);
-    clearOrder();
+    setOrder(obj)
+    sendOrder(obj);
+    e.target.reset();
   };
 
 
@@ -44,10 +44,12 @@ const OrderForm = () => {
     }
   };
 
-  const clearOrder = () => {
-    setOrder({ ...order });
-  };
+  // const resetOrder = () => {
+  //   setOrder({...order});
+  // };
 
+  let tip;
+  let subTotal;
   const priceOrder = () => {
     let count = 0;
     selected.map((item) => {
@@ -57,7 +59,7 @@ const OrderForm = () => {
   };
 
   return (
-    <form className="orderform">
+    <form onSubmit={newOrder(selected)}className="orderform">
       <h2>Order</h2>
       <select
         onChange={(e) => setTable(e.target.value)}
@@ -96,11 +98,8 @@ const OrderForm = () => {
         <p>Total:${(parseFloat(tip) + parseFloat(subTotal)).toFixed(2)}</p>
       </div>
       <button
-        onClick={() => {
-          newOrder(selected)
-        }}
         className="orderform-btn"
-        type="button"
+        type="submit"
       >
         Send
       </button>
