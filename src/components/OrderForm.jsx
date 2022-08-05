@@ -8,7 +8,7 @@ const OrderForm = () => {
   const { selected } = useContext(SelectionContext);
   const [table, setTable] = useState('');
   const [customer, setCustomer] = useState('');
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState({});
 
   let tip;
   let subTotal;
@@ -19,31 +19,38 @@ const OrderForm = () => {
       customer: customer,
       items: [],
     };
-    for(let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
       const itemObj = {};
-      itemObj.id = arr[i].id;
+      itemObj.menuItemId = arr[i].id;
       itemObj.count = arr[i].count;
       obj.items.push(itemObj);
+      console.log(obj);
     }
-   setOrder(obj);
-  }
+    setOrder(obj);
+    sendOrder(order);
+    clearOrder();
+  };
 
-console.log(order);
 
-  const sendOrder = async () => {
+  const sendOrder = async (order) => {
     try {
-        newOrder(selected);
-        const resp = await axios.post('https://burgerqueen.barrenechea.cl/orders', order);
-        console.log(resp.data);
+      const resp = await axios.post(
+        'https://burgerqueen.barrenechea.cl/orders',
+        order
+      );
+      console.log(resp.data);
     } catch (err) {
-        console.error(err);
+      console.error(err);
     }
-};
+  };
 
+  const clearOrder = () => {
+    setOrder({ ...order });
+  };
 
   const priceOrder = () => {
     let count = 0;
-    selected.map(item => {
+    selected.map((item) => {
       count += item.price * item.count;
     });
     return count;
@@ -52,7 +59,10 @@ console.log(order);
   return (
     <form className="orderform">
       <h2>Order</h2>
-      <select onChange={(e) => setTable(e.target.value)} className="orderform-tables">
+      <select
+        onChange={(e) => setTable(e.target.value)}
+        className="orderform-tables"
+      >
         <option value="table-1">Table 1</option>
         <option value="table-2">Table 2</option>
         <option value="table-3">Table 3</option>
@@ -65,7 +75,7 @@ console.log(order);
         <option value="table-10">Table 10</option>
       </select>
       <input
-      onChange={(e) => setCustomer(e.target.value)} 
+        onChange={(e) => setCustomer(e.target.value)}
         type="text"
         className="orderform-client"
         placeholder="Client Name"
@@ -85,7 +95,13 @@ console.log(order);
         <p>Tip:${(tip = (subTotal * 0.1).toFixed(2))}</p>
         <p>Total:${(parseFloat(tip) + parseFloat(subTotal)).toFixed(2)}</p>
       </div>
-      <button onClick={() => sendOrder()} className="orderform-btn" type="submit">
+      <button
+        onClick={() => {
+          newOrder(selected)
+        }}
+        className="orderform-btn"
+        type="button"
+      >
         Send
       </button>
     </form>
