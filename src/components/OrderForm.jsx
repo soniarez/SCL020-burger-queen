@@ -1,12 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import SelectionContext from '../context/Context';
+import axios from 'axios';
 import './OrderForm.scss';
 import OrderItem from './OrderItem';
 
 const OrderForm = () => {
   const { selected } = useContext(SelectionContext);
+  const [table, setTable] = useState('');
+  const [customer, setCustomer] = useState('');
+  const [order, setOrder] = useState([]);
+
   let tip;
   let subTotal;
+
+  const newOrder = (arr) => {
+    const obj = {
+      table: table,
+      customer: customer,
+      items: [],
+    };
+    for(let i = 0; i < arr.length; i++) {
+      const itemObj = {};
+      itemObj.id = arr[i].id;
+      itemObj.count = arr[i].count;
+      obj.items.push(itemObj);
+    }
+   setOrder(obj);
+  }
+
+console.log(order);
+
+  const sendOrder = async () => {
+    try {
+        newOrder(selected);
+        const resp = await axios.post('https://burgerqueen.barrenechea.cl/orders', order);
+        console.log(resp.data);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 
   const priceOrder = () => {
     let count = 0;
@@ -18,8 +51,8 @@ const OrderForm = () => {
 
   return (
     <form className="orderform">
-      <h2>Order #572192</h2>
-      <select className="orderform-tables">
+      <h2>Order</h2>
+      <select onChange={(e) => setTable(e.target.value)} className="orderform-tables">
         <option value="table-1">Table 1</option>
         <option value="table-2">Table 2</option>
         <option value="table-3">Table 3</option>
@@ -32,6 +65,7 @@ const OrderForm = () => {
         <option value="table-10">Table 10</option>
       </select>
       <input
+      onChange={(e) => setCustomer(e.target.value)} 
         type="text"
         className="orderform-client"
         placeholder="Client Name"
@@ -51,7 +85,7 @@ const OrderForm = () => {
         <p>Tip:${(tip = (subTotal * 0.1).toFixed(2))}</p>
         <p>Total:${(parseFloat(tip) + parseFloat(subTotal)).toFixed(2)}</p>
       </div>
-      <button className="orderform-btn" type="submit">
+      <button onClick={() => sendOrder()} className="orderform-btn" type="submit">
         Send
       </button>
     </form>

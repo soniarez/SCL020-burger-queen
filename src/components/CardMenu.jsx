@@ -12,7 +12,7 @@ const CardMenu = ({ category }) => {
     const getMenu = async () => {
       try {
         const menuFromApi = await fetchMenu();
-        console.log(menuFromApi, 'menufrom api');
+        //console.log(menuFromApi, 'menufrom api');
         setMenu(menuFromApi);
       } catch (err) {
         console.log(err, 'error getting data');
@@ -34,7 +34,6 @@ const CardMenu = ({ category }) => {
       }
     }
   };
-  //fetchMenu().then(console.log)
 
   const handlingCategory = () => {
     let data = menu;
@@ -48,10 +47,9 @@ const CardMenu = ({ category }) => {
         }
       }
     }
-    console.log(arrMenu, 'menu filtrado');
+    //console.log(arrMenu, 'menu filtrado');
     return arrMenu;
   };
-  //console.log(handlingCategory());
 
   const filteredMenu = handlingCategory();
 
