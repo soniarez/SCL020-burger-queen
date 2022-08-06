@@ -12,11 +12,11 @@ const Home = () => {
       {/* <input type="text" placeholder="Server´s name" /> */}
       <SigninForm />
       <div className="btn-container">
-        <Link to="/Chef" className='toView' onClick={() => console.log("clicking chef btn")}>
+        <Link to="/Chef" className='toView' >
             <img className="main-icons" src={chefIcon} alt="chef icon" />
         </Link>
 
-        <Link to="/Waiter" className='toView' onClick={() => console.log("cliking waiter btn")}>
+        <Link to="/Waiter" className='toView' >
             <img className="main-icons" src={waiterIcon} alt="waiter icon" />
         </Link>
       </div>

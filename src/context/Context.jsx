@@ -45,7 +45,7 @@ export const SelectionProvider = ({ children }) => {
 
   return (
     <SelectionContext.Provider
-      value={{ selected, addDish, deleteDish, count, setCount, removeDish }}
+      value={{ selected, setSelected, addDish, deleteDish, count, setCount, removeDish }}
     >
       {children}
     </SelectionContext.Provider>
