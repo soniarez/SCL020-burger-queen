@@ -5,15 +5,13 @@ import './OrderForm.scss';
 import OrderItem from './OrderItem';
 
 const OrderForm = () => {
-  const { selected } = useContext(SelectionContext);
+  const { selected, setSelected } = useContext(SelectionContext);
   const [table, setTable] = useState('');
   const [customer, setCustomer] = useState('');
-  const [order, setOrder] = useState({});
+  const [order, setOrder] = useState([]);
 
-  
-  const newOrder = (e) => {
-    e.preventDefault();
-    let arr = selected;
+  //CREATING ORDER
+  const newOrder = (arr) => {
     const obj = {
       table: table,
       customer: customer,
@@ -28,10 +26,11 @@ const OrderForm = () => {
     }
     setOrder(obj)
     sendOrder(obj);
-    e.target.reset();
+    clearOrder();
+    //console.log(order, "is this cleaning?")
   };
 
-
+  //SENDING ORDER
   const sendOrder = async (order) => {
     try {
       const resp = await axios.post(
@@ -44,10 +43,14 @@ const OrderForm = () => {
     }
   };
 
-  // const resetOrder = () => {
-  //   setOrder({...order});
-  // };
+  //CLEANING COMPONENT
+  const clearOrder = () => {
+    setSelected([]);
+    setCustomer("");
+    setTable("");
+  };
 
+  //PRICE DETAILS
   let tip;
   let subTotal;
   const priceOrder = () => {
@@ -59,10 +62,11 @@ const OrderForm = () => {
   };
 
   return (
-    <form onSubmit={newOrder(selected)}className="orderform">
+    <form className="orderform">
       <h2>Order</h2>
       <select
         onChange={(e) => setTable(e.target.value)}
+        value={table}
         className="orderform-tables"
       >
         <option value="table-1">Table 1</option>
@@ -78,6 +82,7 @@ const OrderForm = () => {
       </select>
       <input
         onChange={(e) => setCustomer(e.target.value)}
+        value={customer}
         type="text"
         className="orderform-client"
         placeholder="Client Name"
@@ -98,8 +103,11 @@ const OrderForm = () => {
         <p>Total:${(parseFloat(tip) + parseFloat(subTotal)).toFixed(2)}</p>
       </div>
       <button
+        onClick={() => {
+          newOrder(selected)
+        }}
         className="orderform-btn"
-        type="submit"
+        type="button"
       >
         Send
       </button>
