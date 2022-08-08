@@ -1,13 +1,13 @@
-import React from 'react';
+/* import React from 'react';
 import './CardChef.scss';
 
-const Order = ({prop}) => {
+const Order = () => {
   return (
-      <div className="cardchef-items">
-            <p>{prop.count}</p>
-            <p>{prop.item}</p>
+      <div className="cardchef-orderitems">
+            <p>3 </p>
+            <p>semitas</p>
       </div>
   );
 };
 
-export default Order;
+export default Order; */

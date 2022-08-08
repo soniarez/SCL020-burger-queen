@@ -4,7 +4,7 @@ import SelectionContext from '../context/Context';
 import './CardMenu.scss';
 
 const CardMenu = ({ category }) => {
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState(null);
 
   const { addDish } = useContext(SelectionContext);
 
@@ -40,7 +40,7 @@ const CardMenu = ({ category }) => {
     //console.log(data, "data in for loop")
     let arrMenu = [];
     //console.log(data.length, "soy menu object in data");
-    if (data.length != 0) {
+    if (data) {
       for (let i = 0; i < data.menu.length; i++) {
         if (data.menu[i].type === category) {
           arrMenu.push(data.menu[i]);
@@ -56,10 +56,10 @@ const CardMenu = ({ category }) => {
   return (
     <div className="cardmenu-container">
       {menu &&
-        filteredMenu.map((item, index) => (
+        filteredMenu.map((item) => (
           <div
             className="cardmenu-items"
-            key={index}
+            key={item.id}
             onClick={() => addDish(item)}
           >
             <img className="cardmenu-img" src={item.img} alt="dish img" />
