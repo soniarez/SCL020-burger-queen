@@ -1,60 +1,63 @@
 @use 'src/index' as s;
 
 .cardchef-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
     width: 100%;
 }
 
 .cardchef-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 4.0fr 1fr;
+    line-height: 0%;
     text-align:left;
-    width: 100%;
-    max-width: 150px;
-    height: 250px;
+    width: 280px;
+    height: 400px;
     margin: 21px;
     border-radius: 16px;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-color: s.$color-card;
     cursor: pointer;
+    
 }
 
-.cardchef-items h4 {
+.cardchef-items h2 {
+    font-family: heading-font-family;
     color: s.$color-accent;
 }
 
 .cardchef-items p {
+    font-family: s.$body-font-family;
     font-size: s.$small-font-size;
 }
 
-.cardchef-order-container { 
-// border: 1px solid red;
+.cardchef-order-container { // UL
 background-color: s.$color-card2;
 border-radius: 10px;
-/* flex-grow: 1;
-overflow-y: scroll; */
+padding: 15px;
 }
 
 .cardchef-order-container li {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    line-height: 0%;
+    
 }
 
-.cardchef-order-container li p:first-child {
-    color: rgb(135, 23, 210);
-   
+.cardchef-order-container li p {
+    padding: 0px 10px 0px 10px;
+    
 }
 
-.cardchef-order-container li p:last-child {
-    color: rgb(158, 21, 101);
-} 
+
 
 .cardchef-btns {
     display: flex;
     flex-direction: row;
-    justify-content:space-around;
-    margin-top: 15%;
+    justify-content:space-between;
 }
 
 .status-btn, 
@@ -62,8 +65,8 @@ overflow-y: scroll; */
     text-align: center;
     line-height: 2%;
     padding: 16px;
-    width: auto;
-    height: 30px;
+    width: 100px;
+    height: 47px;
     border-radius: 10px;
     box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.3);
     background-color: s.$color-accent;
@@ -73,5 +76,3 @@ overflow-y: scroll; */
     font-size: s.$small-font-size;
     cursor: pointer;
 }
-
-

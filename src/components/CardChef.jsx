@@ -43,7 +43,7 @@ const ChefCard = () => {
       {orderApi &&
         orderApi.orders.map(item => (
           <div className="cardchef-items" key={item.id}>
-            <h4>Order # {item.id}</h4>
+            <h2>Order # {item.id}</h2>
             <p>Table: {item.table}</p>
             <p>Client: {item.customer}</p>
             <ul className="cardchef-order-container">
