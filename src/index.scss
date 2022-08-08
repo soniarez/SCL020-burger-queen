@@ -158,6 +158,9 @@ input {
   border-bottom:1px solid $color-dark;
 }
 
+.chef-category {
+  width: 15%;
+}
 .waiter-category li:hover,
 .chef-category li:hover {
   color: $color-accent;

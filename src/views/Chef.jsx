@@ -13,7 +13,7 @@ const Chef = () => {
           <li>Cooking</li>
           <li>Ready</li>
         </ul>
-        <h2>{/*status*/}</h2>
+        <h2>Dishes Status: {/*status*/}</h2>
         <CardChef />
         </div>
       </div>

@@ -6,8 +6,8 @@ import OrderItem from './OrderItem';
 
 const OrderForm = () => {
   const { selected, setSelected } = useContext(SelectionContext);
-  const [table, setTable] = useState('');
-  const [customer, setCustomer] = useState('');
+  const [table, setTable] = useState("");
+  const [customer, setCustomer] = useState("");
   const [order, setOrder] = useState([]);
 
   //CREATING ORDER
@@ -45,9 +45,9 @@ const OrderForm = () => {
 
   //CLEANING COMPONENT
   const clearOrder = () => {
-    setSelected([]);
-    setCustomer("");
-    setTable("");
+    setSelected(null);
+    setCustomer(null);
+    setTable(null);
   };
 
   //PRICE DETAILS
@@ -93,8 +93,8 @@ const OrderForm = () => {
         <p className="orderform-details3">Total</p>
       </div>
       <div className="oderform-orderitem-container">
-        {selected.map((item, index) => (
-          <OrderItem selection={item} key={index} />
+        {selected.map((item) => (
+          <OrderItem selection={item} key={item.id} />
         ))}
       </div>
       <div className="orderform-payment-details">

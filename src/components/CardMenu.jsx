@@ -56,10 +56,10 @@ const CardMenu = ({ category }) => {
   return (
     <div className="cardmenu-container">
       {menu &&
-        filteredMenu.map((item, index) => (
+        filteredMenu.map((item) => (
           <div
             className="cardmenu-items"
-            key={index}
+            key={item.id}
             onClick={() => addDish(item)}
           >
             <img className="cardmenu-img" src={item.img} alt="dish img" />
