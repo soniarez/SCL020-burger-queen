@@ -1,13 +1,22 @@
 /* import React from 'react';
 import './CardChef.scss';
 
-const Order = () => {
+const Order = ({comanda}) => {
+
+  console.log(comanda, "comanda")
   return (
       <div className="cardchef-orderitems">
-            <p>3 </p>
-            <p>semitas</p>
+        {comanda.orders.map((item) => (
+          <>
+          {item.items.map((el) => (
+            <><p>Qty:{el.count} </p></>
+          ))}
+          
+          </>
+        ))}
+            
       </div>
   );
 };
 
-export default Order; */
+export default Order;  */
