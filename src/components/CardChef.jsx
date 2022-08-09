@@ -67,9 +67,9 @@ const ChefCard = () => {
 
   const fetchOrder = async () => {
     try {
-      let res = await axios.get(
-        'https://burgerqueen.barrenechea.cl/orders?status=pending&includeItems=true'
-      );
+      let res = await axios.get('https://burgerqueen.barrenechea.cl/orders', {
+        params: { status: 'pending', includeItems: true },
+      });
       let data = await res.data;
 
       return data;

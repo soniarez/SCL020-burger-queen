@@ -2,7 +2,7 @@
 
 .cardchef-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
     width: 100%;
 }
@@ -13,7 +13,7 @@
     grid-template-rows: 0.5fr 0.5fr 0.5fr 4.0fr 1fr;
     line-height: 0%;
     text-align:left;
-    width: 280px;
+    width: 250px;
     height: 400px;
     margin: 21px;
     border-radius: 16px;
@@ -76,3 +76,9 @@ padding: 15px;
     font-size: s.$small-font-size;
     cursor: pointer;
 }
+
+@media screen and (min-width: 1200px) {
+    .cardchef-items {
+        width: 280px;
+    }
+  }

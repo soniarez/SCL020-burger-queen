@@ -6,8 +6,8 @@ import OrderItem from './OrderItem';
 
 const OrderForm = () => {
   const { selected, setSelected } = useContext(SelectionContext);
-  const [table, setTable] = useState("");
-  const [customer, setCustomer] = useState("");
+  const [table, setTable] = useState('');
+  const [customer, setCustomer] = useState('');
   const [order, setOrder] = useState([]);
 
   //CREATING ORDER
@@ -24,7 +24,7 @@ const OrderForm = () => {
       obj.items.push(itemObj);
       console.log(obj);
     }
-    setOrder(obj)
+    setOrder(obj);
     sendOrder(obj);
     clearOrder();
     //console.log(order, "is this cleaning?")
@@ -55,10 +55,12 @@ const OrderForm = () => {
   let subTotal;
   const priceOrder = () => {
     let count = 0;
-    selected.map((item) => {
-      count += item.price * item.count;
-    });
-    return count;
+    if (selected) {
+      selected.map((item) => {
+        count += item.price * item.count;
+      });
+      return count;
+    }
   };
 
   return (
@@ -93,9 +95,8 @@ const OrderForm = () => {
         <p className="orderform-details3">Total</p>
       </div>
       <div className="oderform-orderitem-container">
-        {selected.map((item) => (
-          <OrderItem selection={item} key={item.id} />
-        ))}
+        {selected &&
+          selected.map((item) => <OrderItem selection={item} key={item.id} />)}
       </div>
       <div className="orderform-payment-details">
         <p>Sub Total:${(subTotal = priceOrder()).toFixed(2)}</p>
@@ -104,7 +105,7 @@ const OrderForm = () => {
       </div>
       <button
         onClick={() => {
-          newOrder(selected)
+          newOrder(selected);
         }}
         className="orderform-btn"
         type="button"
