@@ -3,7 +3,7 @@ import Timer from './Timer';
 import axios from 'axios';
 import './CardChef.scss';
 
-const ChefCard = () => {
+const ChefCard = ({status}) => {
   const [orderApi, setOrderApi] = useState(null);
 
   useEffect(() => {
@@ -16,8 +16,12 @@ const ChefCard = () => {
       }
     };
     getOrder();
+    setInterval(() => {
+      getOrder()
+    }, 30*1000)
   }, []);
 
+  //FETCHING ORDERS
   const fetchOrder = async () => {
     try {
       let res = await axios.get('https://burgerqueen.barrenechea.cl/orders', {
@@ -36,10 +40,13 @@ const ChefCard = () => {
 
   //const dataApi = orderApi ? console.log(orderApi.orders[0].id) : console.log("error")
 
+  //FILTERING STATUS (COOKING & READY)
+  const filteredStatus = orderApi ? orderApi.orders.filter((item) => item.status === status) : console.log("error loading order")
+
   return (
     <div className="cardchef-container">
       {orderApi ? (
-        orderApi.orders.map((item) => (
+        filteredStatus.map((item) => (
           <div className="cardchef-items" key={item.id}>
             <h2>Order # {item.id}</h2>
             <p>Table: {item.table}</p>

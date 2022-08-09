@@ -4,7 +4,7 @@ import SelectionContext from '../context/Context';
 import './CardMenu.scss';
 
 const CardMenu = ({ category }) => {
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState(null);
 
   const { addDish } = useContext(SelectionContext);
 
@@ -21,6 +21,7 @@ const CardMenu = ({ category }) => {
     getMenu();
   }, []);
 
+  // FETCHING MENU DATA
   const fetchMenu = async () => {
     try {
       let res = await axios.get('https://burgerqueen.barrenechea.cl/menu');
@@ -35,24 +36,9 @@ const CardMenu = ({ category }) => {
     }
   };
 
-  const handlingCategory = () => {
-    let data = menu;
-    //console.log(data, "data in for loop")
-    let arrMenu = [];
-    //console.log(data.length, "soy menu object in data");
-    if (data.length != 0) {
-      for (let i = 0; i < data.menu.length; i++) {
-        if (data.menu[i].type === category) {
-          arrMenu.push(data.menu[i]);
-        }
-      }
-    }
-    //console.log(arrMenu, 'menu filtrado');
-    return arrMenu;
-  };
-
-  const filteredMenu = handlingCategory();
-
+  //FILTERING CATEGORY (BREAKFAST, LUNCH, ETC)
+  const filteredMenu = menu ? menu.menu.filter((item) => item.type === category) : console.log("error fetching menu")
+  
   return (
     <div className="cardmenu-container">
       {menu &&

@@ -3,7 +3,6 @@ import './CardChef.scss';
 
 
 const Timer = () => {
-
 const [second, setSecond] = useState('00');
 const [minute, setMinute] = useState('00');
 const [isActive, setIsActive] = useState(false);
