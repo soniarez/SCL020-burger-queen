@@ -9,14 +9,12 @@ h2 {
 }
 
 .orderform {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr 0.2fr 0.2fr 0.2fr 2.0fr 1fr;
   background-color: s.$color-secondary;
-  width:350px;
   padding: 30px;
   overflow: hidden;
-  scrollbar-width: none;
 }
 
 .orderform-client {
@@ -73,7 +71,7 @@ h2 {
 .orderform-payment-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:center;
   border-top: 1px solid s.$color-dark;
   line-height: 0;
   color: s.$color-dark;
