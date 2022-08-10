@@ -38,6 +38,9 @@ const [counter, setCounter] = useState(0);
 
     const handleClick = () => {
         setIsActive(!isActive);
+        if (isActive) {
+          onClick(onClick);
+        }
     }
 
     return (
@@ -45,7 +48,7 @@ const [counter, setCounter] = useState(0);
         <button onClick={handleClick}  className="status-btn" style={{backgroundColor: !isActive ? "#f29f05" : "#FF1E00" }}>
           {isActive ? 'Stop' : 'Start'}
         </button>
-        <button className="status-btn" onClick={onClick}>
+        <button className="status-btn">
           <span className="minute">{minute}</span>
           <span>:</span>
           <span className="second">{second}</span>

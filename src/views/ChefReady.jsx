@@ -9,9 +9,9 @@ const Chef = () => {
       <div className="chef-middle">
         <h1>Queen's Road Cafe</h1>
         <ul className="chef-category">
-          <li>Cooking</li>
+          <li>Ready</li>
         </ul>
-        <CardChef status={'pending'} />
+        <CardChef status={'completed'} />
       </div>
     </div>
   );

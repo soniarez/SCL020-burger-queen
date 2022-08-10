@@ -16,16 +16,20 @@ const ChefCard = ({ status }) => {
       }
     };
     getOrder();
-    setInterval(() => {
+    const timer = setInterval(() => {
       getOrder();
-    }, 30 * 1000);
+    }, 15 * 1000);
+
+    return () => {
+      clearInterval(timer);
+    }
   }, []);
 
   //FETCHING ORDERS
   const fetchOrder = async () => {
     try {
       let res = await axios.get('https://burgerqueen.barrenechea.cl/orders', {
-        params: { status: 'pending', includeItems: true },
+        params: { status, includeItems: true },
       });
       let data = await res.data;
 
@@ -37,13 +41,6 @@ const ChefCard = ({ status }) => {
       }
     }
   };
-
-  //const dataApi = orderApi ? console.log(orderApi.orders[0].id) : console.log("error")
-
-  //FILTERING STATUS (COOKING & READY)---
-  const filteredStatus = orderApi
-    ? orderApi.orders.filter(item => item.status === status)
-    : console.log('error loading orders');
 
   // PUT REQUEST
   const UpdateOrderStatus = async id => {
@@ -62,7 +59,7 @@ const ChefCard = ({ status }) => {
   return (
     <div className="cardchef-container">
       {orderApi ? (
-        filteredStatus.map(item => (
+        orderApi.orders.map(item => (
           <div className="cardchef-items" key={item.id}>
             <h2>Order # {item.id}</h2>
             <p>Table: {item.table}</p>

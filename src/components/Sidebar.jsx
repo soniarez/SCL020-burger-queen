@@ -21,6 +21,11 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="sidebar-li">
+          <Link to="/ChefReady">
+            <img className="sidebar-icons" src={chefIcon} alt="chef icon" />
+          </Link>
+        </li>
+        <li className="sidebar-li">
           <Link to="/Waiter">
             <img className="sidebar-icons" src={waiterIcon} alt="waiter icon" />
           </Link>
