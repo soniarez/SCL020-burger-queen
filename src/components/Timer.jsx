@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './CardChef.scss';
 
 
-const Timer = () => {
+const Timer = ({onClick}) => {
 const [second, setSecond] = useState('00');
 const [minute, setMinute] = useState('00');
 const [isActive, setIsActive] = useState(false);
@@ -42,10 +42,10 @@ const [counter, setCounter] = useState(0);
 
     return (
       <div className="cardchef-btns">
-        <button onClick={handleClick} className="status-btn" style={{backgroundColor: !isActive ? "#f29f05" : "#FF1E00" }}>
+        <button onClick={handleClick}  className="status-btn" style={{backgroundColor: !isActive ? "#f29f05" : "#FF1E00" }}>
           {isActive ? 'Stop' : 'Start'}
         </button>
-        <button className="status-btn">
+        <button className="status-btn" onClick={onClick}>
           <span className="minute">{minute}</span>
           <span>:</span>
           <span className="second">{second}</span>
