@@ -6,11 +6,11 @@ import Waiter from './views/Waiter.jsx';
 import Chef from './views/Chef.jsx';
 import ChefReady from './views/ChefReady.jsx';
 import { SelectionProvider } from './context/Context.jsx';
-import { UserProvider } from "./context/UserContext.jsx"
+import { AuthProvider } from "./context/AuthContext.jsx"
 
 function App() {
   return (
-    <UserProvider>
+    <AuthProvider>
       <SelectionProvider>
         <Router>
           <Routes>
@@ -21,7 +21,7 @@ function App() {
           </Routes>
         </Router>
       </SelectionProvider>
-    </UserProvider>
+    </AuthProvider>
   );
 }
 

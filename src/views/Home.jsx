@@ -1,21 +1,61 @@
-import React, {useState} from 'react';
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
 import logo from '../assets/cafeLogo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
 const Home = () => {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { setAuth } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const resp = await axios.post('https://burgerqueen.barrenechea.cl/login', {
+        email,
+        password,
+      });
+      const token = resp.data.token;
+      console.log(token, 'hola');
+      // const role = resp.data.role;
+      setAuth({ email, password, token });
+      navigate('/Chef');
+    } catch (err) {
+      if (!err?.response) {
+        console.log('No Server Response');
+      } else if (err.response?.status === 400) {
+        console.log('Missing Username or Password');
+      } else if (err.response?.status === 401) {
+        console.log('Unauthorized');
+      } else {
+        console.log('Login Failed');
+      }
+    }
+  };
 
   return (
     <div className="home-container">
-      <img src={logo} alt="cafe logo" />
-      <input type="email" placeholder="enter your email" onChange={(e) => setEmail(e.target.value)} value={email} />
-      <input type="password" placeholder="enter your password" onChange={(e) => setPassword(e.target.value)} value={password} />
-      <div className="btn-container">
-        <Link to="/Chef" className="toView">
-          <button className='enter-btn'>Enter</button>
-        </Link>
-      </div>
+      <form>
+        <img src={logo} alt="cafe logo" />
+        <input
+          type="email"
+          placeholder="enter your email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="enter your password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className="btn-container">
+          <button type="submit" onClick={handleSubmit} className="enter-btn">
+            Enter
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
