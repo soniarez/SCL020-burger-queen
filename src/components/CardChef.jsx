@@ -40,7 +40,7 @@ const ChefCard = ({ status }) => {
 
   //const dataApi = orderApi ? console.log(orderApi.orders[0].id) : console.log("error")
 
-  //FILTERING STATUS (COOKING & READY)
+  //FILTERING STATUS (COOKING & READY)---
   const filteredStatus = orderApi
     ? orderApi.orders.filter(item => item.status === status)
     : console.log('error loading orders');
