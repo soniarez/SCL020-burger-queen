@@ -37,7 +37,7 @@ const CardMenu = ({ category }) => {
   };
 
   //FILTERING CATEGORY (BREAKFAST, LUNCH, ETC)
-  const filteredMenu = menu ? menu.menu.filter((item) => item.type === category) : console.log("error fetching menu")
+  const filteredMenu = menu ? menu.menu.filter(item => item.type === category) : console.log("error fetching menu")
   
   return (
     <div className="cardmenu-container">
