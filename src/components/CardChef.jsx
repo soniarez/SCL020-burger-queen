@@ -59,8 +59,6 @@ const ChefCard = ({ status }) => {
     }
   };
 
-  console.log(UpdateOrderStatus());
-
   return (
     <div className="cardchef-container">
       {orderApi ? (
