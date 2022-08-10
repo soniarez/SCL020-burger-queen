@@ -5,8 +5,6 @@ import Home from './views/Home.jsx';
 import Waiter from './views/Waiter.jsx';
 import Chef from './views/Chef.jsx';
 import ChefReady from './views/ChefReady.jsx';
-import Incomming from './views/Incomming.jsx';
-import Ready from './views/Ready.jsx';
 import { SelectionProvider } from './context/Context.jsx';
 
 

@@ -22,7 +22,7 @@ const ChefCard = ({ status }) => {
 
     return () => {
       clearInterval(timer);
-    }
+    };
   }, []);
 
   //FETCHING ORDERS
@@ -56,6 +56,12 @@ const ChefCard = ({ status }) => {
     }
   };
 
+  // DELETE REQUEST
+/*   const deleteOrder = id => {
+    setOrderApi(orderApi.orders.filter(item => item.id !== id));
+  };
+ */
+
   return (
     <div className="cardchef-container">
       {orderApi ? (
@@ -72,7 +78,17 @@ const ChefCard = ({ status }) => {
                 </li>
               ))}
             </ul>
-            <Timer onClick={() => UpdateOrderStatus(item.id)} />
+            {status === 'pending' ? (
+              <Timer onClick={() => UpdateOrderStatus(item.id)} />
+            ) : (
+              <button
+                className="status-btn"
+                // onClick={()=>deleteOrder(item.id)}
+                style={{ backgroundColor: '#41ABB5' }}
+              >
+                Ready
+              </button>
+            )}
           </div>
         ))
       ) : (
