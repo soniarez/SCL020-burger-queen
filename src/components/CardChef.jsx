@@ -50,7 +50,7 @@ const ChefCard = ({ status }) => {
   };
 
   // PUT REQUEST COMPLETED
-  const UpdateOrderStatus = async (id) => {
+  const UpdateOrderStatus = async id => {
     try {
       const res = await axios.put(
         'https://burgerqueen.barrenechea.cl/orders/' + id,
@@ -65,7 +65,7 @@ const ChefCard = ({ status }) => {
   };
 
   // PUT REQUEST VISIBLE
-  const UpdateOrderHidden = async (id) => {
+  const UpdateOrderHidden = async id => {
     try {
       const res = await axios.put(
         'https://burgerqueen.barrenechea.cl/orders/' + id,
@@ -83,13 +83,13 @@ const ChefCard = ({ status }) => {
   return (
     <div className="cardchef-container">
       {orderApi ? (
-        orderApi.orders.map((item) => (
+        orderApi.orders.map(item => (
           <div className="cardchef-items" key={item.id}>
             <h2>Order # {item.id}</h2>
             <p>Table: {item.table}</p>
             <p>Client: {item.customer}</p>
             <ul className="cardchef-order-container">
-              {item.items.map((el) => (
+              {item.items.map(el => (
                 <li key={el.status}>
                   <p>{el.count}</p>
                   <p>{el.menuItem.title}</p>

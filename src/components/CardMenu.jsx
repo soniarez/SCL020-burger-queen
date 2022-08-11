@@ -8,10 +8,9 @@ const CardMenu = ({ category }) => {
   const [menu, setMenu] = useState(null);
 
   const { addDish } = useContext(SelectionContext);
-  const { headers } = useContext(AuthContext)
+  const { headers } = useContext(AuthContext);
 
   useEffect(() => {
-   
     const getMenu = async () => {
       try {
         const menuFromApi = await fetchMenu();
@@ -26,9 +25,10 @@ const CardMenu = ({ category }) => {
 
   // FETCHING MENU DATA
   const fetchMenu = async () => {
-
     try {
-      let res = await axios.get('https://burgerqueen.barrenechea.cl/menu', { headers });
+      let res = await axios.get('https://burgerqueen.barrenechea.cl/menu', {
+        headers,
+      });
       let data = await res.data;
 
       return data;
@@ -40,14 +40,15 @@ const CardMenu = ({ category }) => {
     }
   };
 
-
   //FILTERING CATEGORY (BREAKFAST, LUNCH, ETC)
-  const filteredMenu = menu ? menu.menu.filter(item => item.type === category) : console.log("error fetching menu")
-  
+  const filteredMenu = menu
+    ? menu.menu.filter(item => item.type === category)
+    : console.log('error fetching menu');
+
   return (
     <div className="cardmenu-container">
       {menu &&
-        filteredMenu.map((item) => (
+        filteredMenu.map(item => (
           <div
             className="cardmenu-items"
             key={item.id}

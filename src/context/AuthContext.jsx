@@ -3,7 +3,9 @@ import React, { createContext, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState(null);
+ 
+  const [isLoggedin, setIsLoggedin] = useState(false);
+  console.log(isLoggedin, "is logged in?")
 
   let headers = {
     Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -11,7 +13,7 @@ export const AuthProvider = ({ children }) => {
 
   //POST REQUEST FOR LOGIN
   return (
-    <AuthContext.Provider value={{ auth, setAuth, headers }}>
+    <AuthContext.Provider value={{ headers, setIsLoggedin}}>
       {children}
     </AuthContext.Provider>
   );
