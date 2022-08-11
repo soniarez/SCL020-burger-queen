@@ -7,6 +7,7 @@ import Chef from './views/Chef.jsx';
 import ChefReady from './views/ChefReady.jsx';
 import { SelectionProvider } from './context/Context.jsx';
 import { AuthProvider } from "./context/AuthContext.jsx"
+// import ProtectedRoutes from './context/ProtectedRoutes.jsx';
 
 function App() {
   return (
@@ -15,9 +16,9 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Waiter" element={<Waiter />} />
-            <Route path="/Chef" element={<Chef />} />
-            <Route path="/ChefReady" element={<ChefReady />} />
+            <Route path="/Waiter" element= {<Waiter /> } />
+            <Route path="/Chef" element= {  <Chef />  }  />
+            <Route path="/ChefReady" element= {<ChefReady /> }/>
           </Routes>
         </Router>
       </SelectionProvider>

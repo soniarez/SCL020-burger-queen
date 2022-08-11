@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import logo from '../assets/cafeLogo.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
 const Home = () => {
@@ -18,8 +18,9 @@ const Home = () => {
         email,
         password,
       });
-      const token = resp.data.token;
-      console.log(token, 'hola');
+      const token = resp.data.token
+      localStorage.setItem("token", token);
+     
       // const role = resp.data.role;
       setAuth({ email, password, token });
       navigate('/Chef');
@@ -38,7 +39,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <form>
+      <form className='home-container-form'>
         <img src={logo} alt="cafe logo" />
         <input
           type="email"

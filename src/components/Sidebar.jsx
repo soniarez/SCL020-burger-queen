@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import homeIcon from '../assets/homeIcon.png';
 import chefIcon from '../assets/chefIcon.png';
+import readyIcon from '../assets/readyIcon.png';
 import waiterIcon from '../assets/waiterIcon.png';
 import darkModeIcon from '../assets/darkModeIcon.png';
 import logoutIcon from '../assets/logoutIcon.png';
@@ -22,7 +23,7 @@ const Sidebar = () => {
         </li>
         <li className="sidebar-li">
           <Link to="/ChefReady">
-            <img className="sidebar-icons" src={chefIcon} alt="chef icon" />
+            <img className="sidebar-icons" src={readyIcon} alt="chef icon" />
           </Link>
         </li>
         <li className="sidebar-li">
