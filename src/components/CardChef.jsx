@@ -30,20 +30,16 @@ const ChefCard = ({ status }) => {
 
   //FETCHING ORDERS
   const fetchOrder = async () => {
-    console.log('HOLAAAAA');
+    const config = {
+      params: { status: status, includeItems: true },
+      headers: headers,
+    };
     try {
       let res = await axios.get(
-        'https://burgerqueen.barrenechea.cl/orders?status=pending&includeItems=true', 
-        {
-          params: { status: status, includeItems: true },
-          headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
-        }
+        'https://burgerqueen.barrenechea.cl/orders',
+        config
       );
-
       let data = await res.data;
-      console.log('hola');
-      console.log(data, 'soy data');
-
       return data;
     } catch (err) {
       if (err.response) {
@@ -53,8 +49,8 @@ const ChefCard = ({ status }) => {
     }
   };
 
-  // PUT REQUEST
-  const UpdateOrderStatus = async id => {
+  // PUT REQUEST COMPLETED
+  const UpdateOrderStatus = async (id) => {
     try {
       const res = await axios.put(
         'https://burgerqueen.barrenechea.cl/orders/' + id,
@@ -68,22 +64,32 @@ const ChefCard = ({ status }) => {
     }
   };
 
-  // DELETE REQUEST
-  /*   const deleteOrder = id => {
-    setOrderApi(orderApi.orders.filter(item => item.id !== id));
+  // PUT REQUEST VISIBLE
+  const UpdateOrderHidden = async (id) => {
+    try {
+      const res = await axios.put(
+        'https://burgerqueen.barrenechea.cl/orders/' + id,
+        {
+          status: 'completed',
+          visible: false,
+        },
+        { headers }
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
- */
 
   return (
     <div className="cardchef-container">
       {orderApi ? (
-        orderApi.orders.map(item => (
+        orderApi.orders.map((item) => (
           <div className="cardchef-items" key={item.id}>
             <h2>Order # {item.id}</h2>
             <p>Table: {item.table}</p>
             <p>Client: {item.customer}</p>
             <ul className="cardchef-order-container">
-              {item.items.map(el => (
+              {item.items.map((el) => (
                 <li key={el.status}>
                   <p>{el.count}</p>
                   <p>{el.menuItem.title}</p>
@@ -94,8 +100,8 @@ const ChefCard = ({ status }) => {
               <Timer onClick={() => UpdateOrderStatus(item.id)} />
             ) : (
               <button
+                onClick={() => UpdateOrderHidden(item.id)}
                 className="status-btn"
-                // onClick={()=>deleteOrder(item.id)}
                 style={{ backgroundColor: '#41ABB5' }}
               >
                 Ready
