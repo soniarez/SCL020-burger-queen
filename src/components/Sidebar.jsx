@@ -1,13 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate  } from 'react-router-dom';
 import homeIcon from '../assets/homeIcon.png';
 import chefIcon from '../assets/chefIcon.png';
 import readyIcon from '../assets/readyIcon.png';
 import waiterIcon from '../assets/waiterIcon.png';
 import darkModeIcon from '../assets/darkModeIcon.png';
 import logoutIcon from '../assets/logoutIcon.png';
+import AuthContext from '../context/AuthContext';
 
 const Sidebar = () => {
+  const { setIsLoggedin } = useContext(AuthContext)
+
+  const navigate = useNavigate();
+  
+  const logout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedin(false);
+    navigate("/");
+  }
+
   return (
     <nav className="sidebar">
       <ul className="sidebar-ul">
@@ -42,13 +53,11 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="sidebar-li">
-          <Link to="/">
-            <img
+          <img onClick={()=> logout()}
               className="sidebar-icons"
               src={logoutIcon}
               alt="logout icon"
             />
-          </Link>
         </li>
         </div>
       </ul>
