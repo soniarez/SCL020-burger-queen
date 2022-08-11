@@ -3,12 +3,15 @@ import SelectionContext from '../context/Context';
 import axios from 'axios';
 import './OrderForm.scss';
 import OrderItem from './OrderItem';
+import AuthContext from '../context/AuthContext';
 
 const OrderForm = () => {
   const { selected, setSelected } = useContext(SelectionContext);
   const [table, setTable] = useState('');
   const [customer, setCustomer] = useState('');
   const [order, setOrder] = useState([]);
+
+  const { headers } = useContext(AuthContext);
 
   //CREATING ORDER
   const newOrder = (arr) => {
@@ -34,8 +37,8 @@ const OrderForm = () => {
   const sendOrder = async (order) => {
     try {
       const resp = await axios.post(
-        'https://burgerqueen.barrenechea.cl/orders',
-        order
+        'https://burgerqueen.barrenechea.cl/orders', 
+        order, { headers }
       );
       console.log(resp.data);
     } catch (err) {

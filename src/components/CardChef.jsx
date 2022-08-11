@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Timer from './Timer';
 import axios from 'axios';
 import './CardChef.scss';
+import AuthContext from '../context/AuthContext';
 
 const ChefCard = ({ status }) => {
   const [orderApi, setOrderApi] = useState(null);
+
+  const { headers } = useContext(AuthContext);
 
   useEffect(() => {
     const getOrder = async () => {
@@ -27,11 +30,19 @@ const ChefCard = ({ status }) => {
 
   //FETCHING ORDERS
   const fetchOrder = async () => {
+    console.log('HOLAAAAA');
     try {
-      let res = await axios.get('https://burgerqueen.barrenechea.cl/orders', {
-        params: { status, includeItems: true },
-      });
+      let res = await axios.get(
+        'https://burgerqueen.barrenechea.cl/orders?status=pending&includeItems=true', 
+        {
+          params: { status: status, includeItems: true },
+          headers: {Authorization: `Bearer ${localStorage.getItem("token")}`}
+        }
+      );
+
       let data = await res.data;
+      console.log('hola');
+      console.log(data, 'soy data');
 
       return data;
     } catch (err) {
@@ -49,7 +60,8 @@ const ChefCard = ({ status }) => {
         'https://burgerqueen.barrenechea.cl/orders/' + id,
         {
           status: 'completed',
-        }
+        },
+        { headers }
       );
     } catch (err) {
       console.log(err);
@@ -57,7 +69,7 @@ const ChefCard = ({ status }) => {
   };
 
   // DELETE REQUEST
-/*   const deleteOrder = id => {
+  /*   const deleteOrder = id => {
     setOrderApi(orderApi.orders.filter(item => item.id !== id));
   };
  */
