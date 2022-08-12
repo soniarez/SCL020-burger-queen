@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import logo from '../assets/cafeLogo.png';
+import macaron from '../assets/macaron.png';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode';
 import swal from 'sweetalert';
+import './Home.scss';
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +16,7 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const resp = await axios.post(
@@ -52,21 +54,24 @@ const Home = () => {
       <form className="home-container-form">
         <img src={logo} alt="cafe logo" />
         <input
+          className="input-login"
           value={email}
           type="email"
-          placeholder="enter your email"
-          onChange={e => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          className="input-login"
           value={password}
-          type="text"
-          placeholder="enter your password"
-          onChange={e => setPassword(e.target.value)}
+          type="password"
+          placeholder="Enter your password"
+          onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="btn-container">
+        <div className='button-container'>
           <button type="submit" onClick={handleSubmit} className="enter-btn">
-            Enter
+            Sign in
           </button>
+          <img onClick={handleSubmit} src={macaron} alt="macaron animation" className="shake-hard" />
         </div>
       </form>
     </div>
