@@ -67,14 +67,11 @@ const Home = () => {
           placeholder="Enter your password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className="btn-container">
-          <img
-            type="submit"
-            onClick={handleSubmit}
-            src={macaron}
-            alt="macaron animation"
-            className='enter-btn'
-          />
+        <div className='button-container'>
+          <button type="submit" onClick={handleSubmit} className="enter-btn">
+            Sign in
+          </button>
+          <img onClick={handleSubmit} src={macaron} alt="macaron animation" className="shake-hard" />
         </div>
       </form>
     </div>
