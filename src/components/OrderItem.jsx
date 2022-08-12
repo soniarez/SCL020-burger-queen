@@ -23,7 +23,7 @@ const OrderItem = ({ selection }) => {
           type="text"
           value={selection.count}
         ></input>
-        <FaMinus onClick={() => removeDish(selection)} />
+        <FaMinus onChange={selection.count === 0 ? deleteDish(selection.id) : selection.count} onClick={() => removeDish(selection)} />
         <p>${selection.price * selection.count}</p>
       </div>
       <div className="orderitem-delete">
