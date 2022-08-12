@@ -29,13 +29,13 @@ export const SelectionProvider = ({ children }) => {
       const updatedSelected = selected.map(item => {
         if (item.id === product.id) {
           return { ...item, count: --item.count };
-        }
+        }  
         return item;
       });
       setSelected(updatedSelected);
     } else {
       setSelected([...selected, { ...product, count: 1 }]);
-    }
+    } 
   };
 
   //DELETE DISH
