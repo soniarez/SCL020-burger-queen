@@ -3,6 +3,8 @@ import axios from 'axios';
 import logo from '../assets/cafeLogo.png';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
+import jwt_decode from "jwt-decode";
+import swal from 'sweetalert';
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -23,18 +25,24 @@ const Home = () => {
         }
       );
       const token = resp.data.token;
+      const role = jwt_decode(token).role;
       localStorage.setItem('token', token);
       setIsLoggedin(true);
-      navigate('/Chef');
+      if (role === 'chef') {
+        navigate('/Chef');
+      }
+      if (role === 'waiter') {
+        navigate('/Waiter');
+      }
     } catch (err) {
       if (!err?.response) {
-        console.log('No Server Response');
+        swal('Sorry! Something went wrong');
       } else if (err.response?.status === 400) {
-        console.log('Missing Username or Password');
+        swal('Missing Username or Password');
       } else if (err.response?.status === 401) {
-        console.log('Unauthorized');
+        swal("You don't have access");
       } else {
-        console.log('Login Failed');
+        swal('Login failed, try again');
       }
     }
   };
