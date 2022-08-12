@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { FaMinus } from 'react-icons/fa';
 import { FaTrash } from 'react-icons/fa';
@@ -18,12 +18,16 @@ const OrderItem = ({ selection }) => {
           value={selection.title}
         ></input>
         <FaPlus onClick={() => addDish(selection)} />
-        <input
-          className="orderitem-input-q"
-          type="text"
-          value={selection.count}
-        ></input>
-        <FaMinus onChange={selection.count === 0 ? deleteDish(selection.id) : selection.count} onClick={() => removeDish(selection)} />
+        {selection.count === 0 ? (
+          deleteDish(selection.id)
+        ) : (
+          <input
+            className="orderitem-input-q"
+            type="text"
+            value={selection.count}
+          ></input>
+        )}
+        <FaMinus onClick={() => removeDish(selection)} />
         <p>${selection.price * selection.count}</p>
       </div>
       <div className="orderitem-delete">
