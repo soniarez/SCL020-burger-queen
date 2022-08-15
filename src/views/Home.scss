@@ -1,7 +1,6 @@
 @use 'src/index' as s;
 
 .home-container {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,7 +62,7 @@
     transition-duration: 0.35s;
   }
 
-  .shake-hard {
+  .shake-chunk {
     width: 100px;
     height: auto;
   }

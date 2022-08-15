@@ -101,7 +101,7 @@ const ChefCard = ({ status }) => {
             ) : (
               <button
                 onClick={() => UpdateOrderHidden(item.id)}
-                className="status-btn"
+                className="btn-ready"
                 style={{ backgroundColor: '#41ABB5' }}
               >
                 Ready

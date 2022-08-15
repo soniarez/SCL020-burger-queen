@@ -71,7 +71,7 @@ const Home = () => {
           <button type="submit" onClick={handleSubmit} className="enter-btn">
             Sign in
           </button>
-          <img onClick={handleSubmit} src={macaron} alt="macaron animation" className="shake-hard" />
+          <img onClick={handleSubmit} src={macaron} alt="macaron animation" className="shake-chunk" />
         </div>
       </form>
     </div>
