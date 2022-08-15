@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import logo from '../assets/cafeLogo.png';
+import logo from '../assets/CafeLogo.png';
 import macaron from '../assets/macaron.png';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
