@@ -5,20 +5,20 @@ h2 {
   font-family: 'Playfair Display';
   font-weight: 400;
   color: s.$color-dark;
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .orderform {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.5fr 0.2fr 0.2fr 0.2fr 2.0fr 1fr;
+  grid-template-rows: 10% 4% 8% 5% 45% 20% 10%;
   background-color: s.$color-secondary;
-  padding: 30px;
+  padding: 10px 30px 10px 30px;
   overflow: hidden;
 }
 
 .orderform-client {
-  margin: 20px 0px 20px 0px;
+  margin: 15px 0 15px 0;
 }
 
 .orderform-tables, 
@@ -38,6 +38,7 @@ h2 {
 }
 
 .oderform-orderitem-container {
+  width: 100%;
   flex-grow: 1;
   overflow-y: scroll;
   max-height: 300px;
@@ -47,6 +48,7 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   border-top: 1px solid s.$color-dark;
+  width: 98%;
 }
 
 .orderform-details1 {
@@ -69,9 +71,9 @@ h2 {
 }
 
 .orderform-payment-details {
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-rows: 30% 30% 30%;
   border-top: 1px solid s.$color-dark;
   line-height: 0;
   color: s.$color-dark;
@@ -96,6 +98,7 @@ h2 {
 .orderitem-container {
   display: flex;
   flex-direction: column;
+  width: 98%;
 }
 
 .orderitem-selection {
@@ -121,7 +124,7 @@ h2 {
 .orderitem-input {
   background-color: s.$color-card;
   margin: 0;
-  width: 60%;
+  width: 55%;
   padding: 4px;
   border-radius: 4px;
   font-size: s.$small-font-size;
