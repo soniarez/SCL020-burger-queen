@@ -102,9 +102,12 @@ const OrderForm = () => {
           selected.map((item) => <OrderItem selection={item} key={item.id} />)}
       </div>
       <div className="orderform-payment-details">
-        <p>Sub Total:${(subTotal = priceOrder()).toFixed(2)}</p>
-        <p>Tip:${(tip = (subTotal * 0.1).toFixed(2))}</p>
-        <p>Total:${(parseFloat(tip) + parseFloat(subTotal)).toFixed(2)}</p>
+        <p>Sub Total:</p>
+        <p>${(subTotal = priceOrder()).toFixed(2)}</p>
+        <p>Tip:</p>
+        <p>${(tip = (subTotal * 0.1).toFixed(2))}</p>
+        <p>Total:</p>
+        <p>${(parseFloat(tip) + parseFloat(subTotal)).toFixed(2)}</p>
       </div>
       <button
         onClick={() => {
