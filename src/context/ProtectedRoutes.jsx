@@ -6,7 +6,7 @@ const ProtectedRoutes = ({ children }) => {
   const token = localStorage.getItem("token");
   //console.log(token);
   if (!token) return <Navigate to="/" />;
-  return <>{children}</>;
+  return children;
 };
 
 export default ProtectedRoutes;

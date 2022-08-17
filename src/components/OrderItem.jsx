@@ -12,6 +12,7 @@ const OrderItem = ({ selection }) => {
     <div className="orderitem-container">
       <div className="orderitem-selection">
         <input
+          readOnly="readonly"
           className="orderitem-input"
           type="text"
           placeholder="Item"
@@ -25,14 +26,15 @@ const OrderItem = ({ selection }) => {
             className="orderitem-input-q"
             type="text"
             value={selection.count}
+            readOnly="readonly"
           ></input>
         )}
         <FaMinus onClick={() => removeDish(selection)} />
         <p>${selection.price * selection.count}</p>
       </div>
       <div className="orderitem-delete">
-        <select className="orderitem-size">
-          <option value="" disabled selected>
+        <select className="orderitem-size" defaultValue="Size">
+          <option value="Size" disabled>
             Size
           </option>
           <option value="small">SM</option>

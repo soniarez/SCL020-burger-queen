@@ -21,7 +21,7 @@ const ChefCard = ({ status }) => {
     getOrder();
     const timer = setInterval(() => {
       getOrder();
-    }, 15 * 1000);
+    }, 5 * 1000);
 
     return () => {
       clearInterval(timer);
@@ -90,7 +90,7 @@ const ChefCard = ({ status }) => {
             <p>Client: {item.customer}</p>
             <ul className="cardchef-order-container">
               {item.items.map(el => (
-                <li key={el.status}>
+                <li key={el.menuItemId}>
                   <p>{el.count}</p>
                   <p>{el.menuItem.title}</p>
                 </li>

@@ -48,9 +48,10 @@ const OrderForm = () => {
 
   //CLEANING COMPONENT
   const clearOrder = () => {
-    setSelected(null);
-    setCustomer(null);
-    setTable(null);
+    setSelected([]);
+    setCustomer('');
+    setTable('');
+    setOrder([]);
   };
 
   //PRICE DETAILS
