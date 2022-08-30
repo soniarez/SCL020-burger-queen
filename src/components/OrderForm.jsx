@@ -4,6 +4,8 @@ import axios from 'axios';
 import './OrderForm.scss';
 import OrderItem from './OrderItem';
 import AuthContext from '../context/AuthContext';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const OrderForm = () => {
   const { selected, setSelected } = useContext(SelectionContext);
@@ -12,6 +14,7 @@ const OrderForm = () => {
   const [order, setOrder] = useState([]);
 
   const { headers } = useContext(AuthContext);
+  const MySwal = withReactContent(Swal);
 
   //CREATING ORDER
   const newOrder = (arr) => {
@@ -40,9 +43,17 @@ const OrderForm = () => {
         'https://burgerqueen.barrenechea.cl/orders', 
         order, { headers }
       );
-      console.log(resp.data);
+      //console.log(resp.data);
+      MySwal.fire({
+        title: <strong>Your order was successfully submitted!</strong>,
+        icon: 'success',
+      });
     } catch (err) {
       console.error(err);
+      MySwal.fire({
+        title: <strong>Your order was successfully submitted!</strong>,
+        icon: 'error',
+      });
     }
   };
 

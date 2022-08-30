@@ -5,7 +5,8 @@ import macaron from '../assets/macaron.png';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import jwt_decode from 'jwt-decode';
-import swal from 'sweetalert';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import './Home.scss';
 
 const Home = () => {
@@ -16,7 +17,9 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const MySwal = withReactContent(Swal);
+
+  const handleSubmit = async e => {
     e.preventDefault();
     try {
       const resp = await axios.post(
@@ -38,13 +41,25 @@ const Home = () => {
       }
     } catch (err) {
       if (!err?.response) {
-        swal('Sorry! Something went wrong');
+        MySwal.fire({
+          title: <strong>Something happend!</strong>,
+          icon: 'warning',
+        });
       } else if (err.response?.status === 400) {
-        swal('Missing Username or Password');
+        MySwal.fire({
+          title: <strong>Something went wrong, try again!</strong>,
+          icon: 'error',
+        });
       } else if (err.response?.status === 401) {
-        swal("You don't have access");
+        MySwal.fire({
+          title: <strong>You don't have access!</strong>,
+          icon: 'error',
+        });
       } else {
-        swal('Login failed, try again');
+        MySwal.fire({
+          title: <strong>Login failed, try again!</strong>,
+          icon: 'warning',
+        });
       }
     }
   };
@@ -54,24 +69,31 @@ const Home = () => {
       <form className="home-container-form">
         <img src={logo} alt="cafe logo" />
         <input
+          required
           className="input-login"
           value={email}
           type="email"
           placeholder="Enter your email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={e => setEmail(e.target.value)}
         />
         <input
+          required
           className="input-login"
           value={password}
           type="password"
           placeholder="Enter your password"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
         />
-        <div className='button-container'>
+        <div className="button-container">
           <button type="submit" onClick={handleSubmit} className="enter-btn">
             Sign in
           </button>
-          <img onClick={handleSubmit} src={macaron} alt="macaron animation" className="shake-chunk" />
+          <img
+            onClick={handleSubmit}
+            src={macaron}
+            alt="macaron animation"
+            className="shake-chunk"
+          />
         </div>
       </form>
     </div>
