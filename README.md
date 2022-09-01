@@ -1,42 +1,42 @@
 ## *Queen´s Road Cafe*
 
-"*Queen´s Road Cafe*" es una aplicación web para gestión de pedidos de restaurante, orientado a garzones y personal de cocina. 
+"*Queen´s Road Cafe*" is a web application for restaurant order management, oriented to waiters and kitchen staff. 
 
-### ¿Donde lo encuentro?
-Puedes probarlo tu mismo
-[aquí](https://scl-020-burger-queen-c5r7ruz4g-soniarez.vercel.app/)
+### ¿Where can I try it?
+You can find it 
+[here](https://scl-020-burger-queen-c5r7ruz4g-soniarez.vercel.app/)
 
-### Historias de usuario
-Esta plataforma considera dos usuarios: meseros, y personal de cocina (chef)
+### User stories
+This platform considers two users: waiters and kitchen staff (chef).
 
-#### Historia de usuario 1: Mesero/a debe poder tomar pedido de cliente
-Yo como meserx quiero tomar el pedido de un cliente para no depender de mi mala memoria, para saber cuánto cobrar, y enviarlo a la cocina para evitar errores y que se puedan ir preparando en orden.
+#### User story 1: Waiter/waitress should be able to take customer order
+As a waiter/waitress, I want to take a customer's order so I don't have to rely on my poor memory to know how much to charge, and send it to the kitchen to avoid mistakes so they can be prepared in order.
 
-##### Criterios de aceptación
-1. Anotar nombre de cliente.
-2. Agregar productos al pedido.
-3. Eliminar productos.
-4. Ver resumen y el total de la compra.
-5. Enviar pedido a cocina (guardados en base de datos, utilizando API en Swagger).
-6. Se ve y funciona bien en una tablet
+##### Acceptance criteria
+1. Enter customer name.
+2. Add products to the order.
+3. Delete products.
+4. To be able to see summary and total of the purchase.
+5. Send order to kitchen (saved in database, using API in Swagger).
+6. It looks and works well on a tablet.
 
-#### Historia de usuario 2: Jefe de cocina debe ver los pedidos (chef)
+#### User story 2: Chef must see orders 
+As the chef, I want to see customer orders in order, and mark which ones are ready, so I know what to cook and let the waiters know that an order is ready to be served to a customer.
 
-##### Criterios de aceptación
-1. Ver los pedidos ordenados según se van haciendo.
-2. Marcar los pedidos que se han preparado y están listos para servirse.
-3. Ver el tiempo que tomó prepara el pedido desde que llegó hasta que se marcó como completado.
-4. Una vez se para el timer, el pedido desaparece de pantalla.
+##### Acceptance criteria
+1. View orders organized as they are placed.
+2. Mark the orders that have been prepared and are ready to be served.
+3. View the time it took to prepare the order from the time it arrived until it was marked as completed.
+4. Once the timer stops, the order disappears from the screen.
 
-#### Historia de usuario 3: Meserx debe ver pedidos listos para servir
-Yo como meserx quiero ver los pedidos que están preparados para entregarlos rápidamente a los clientes que las hicieron.
+#### User story 3: Meserx should see ready-to-serve orders
+I as a waiter/waitress want to see the orders that are ready to be delivered quickly to the customers who placed them.
 
-##### Criterios de aceptación
-1. Ver los pedidos ordenados según se van haciendo.
-2. Marcar los pedidos que se han preparado y están listos para servirse.
-3. Ver el tiempo que tomó preparar el pedido desde que llegó hasta que se marcó como completado.
+##### Acceptance criteria
+1. View list of ready-to-serve orders.
+2. Mark orders that have been delivered.
 
 ## Demo:
-[Ver aquí](https://vimeo.com/745017402)
+[Take a look here](https://vimeo.com/745017402)
 
 
