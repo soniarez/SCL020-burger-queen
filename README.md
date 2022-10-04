@@ -3,7 +3,7 @@
 "*Queen´s Road Cafe*" is a web application for restaurant order management, oriented to waiters and kitchen staff. 
 
 ### ¿Where can I try it?
-You can find it 👇
+You can find it 👉
 [here](https://scl-020-burger-queen-c5r7ruz4g-soniarez.vercel.app/)
 
 ### User stories
