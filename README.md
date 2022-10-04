@@ -37,7 +37,7 @@ I as a waiter/waitress want to see the orders that are ready to be delivered qui
 2. Mark orders that have been delivered.
 
 ## Give it a try here 👇
-[Take a look here](https://vimeo.com/745017402)
+[Click me here](https://vimeo.com/745017402)
 
 ## Demo:
 ![bg-gif](https://user-images.githubusercontent.com/101676781/193935193-cbc6c090-1a7b-4550-9282-f58957f661d7.gif)
